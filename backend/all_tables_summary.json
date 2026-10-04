@@ -1,0 +1,1792 @@
+[
+  {
+    "name": "admission",
+    "rowCount": 24,
+    "primaryKeys": [
+      "admission_id"
+    ],
+    "foreignKeys": [
+      "student_id->student.student_id",
+      "approved_by->users.user_id"
+    ],
+    "uniqueConstraints": [
+      "application_no"
+    ],
+    "checkConstraints": [
+      "chk_previous_percentage: ((previous_percentage IS NULL) OR ((previous_percentage >= (0)::numeric) AND (previous_percentage <= (100)::numeric)))",
+      "admission_admission_id_not_null: admission_id IS NOT NULL",
+      "admission_student_id_not_null: student_id IS NOT NULL",
+      "admission_application_no_not_null: application_no IS NOT NULL",
+      "admission_application_date_not_null: application_date IS NOT NULL",
+      "admission_admission_year_not_null: admission_year IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "admission_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('admission_admission_id_seq'::regclass)"
+      },
+      {
+        "name": "student_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "application_no",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "application_date",
+        "type": "date",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "admission_year",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "admission_type",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "category",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "entrance_exam",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "entrance_rank",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "previous_institution",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "previous_percentage",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "admission_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Pending'::character varying"
+      },
+      {
+        "name": "approved_by",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "approved_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "attendance",
+    "rowCount": 144,
+    "primaryKeys": [
+      "attendance_id"
+    ],
+    "foreignKeys": [
+      "subject_id->subject.subject_id",
+      "enrollment_id->enrollment.enrollment_id",
+      "faculty_id->faculty.faculty_id",
+      "recorded_by->users.user_id"
+    ],
+    "uniqueConstraints": [
+      "enrollment_id",
+      "subject_id",
+      "class_date",
+      "period_no"
+    ],
+    "checkConstraints": [
+      "attendance_attendance_id_not_null: attendance_id IS NOT NULL",
+      "attendance_enrollment_id_not_null: enrollment_id IS NOT NULL",
+      "attendance_subject_id_not_null: subject_id IS NOT NULL",
+      "attendance_class_date_not_null: class_date IS NOT NULL",
+      "attendance_is_present_not_null: is_present IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "attendance_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('attendance_attendance_id_seq'::regclass)"
+      },
+      {
+        "name": "enrollment_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "subject_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "faculty_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "class_date",
+        "type": "date",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "period_no",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "is_present",
+        "type": "boolean",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "remarks",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "recorded_by",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "recorded_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "course",
+    "rowCount": 4,
+    "primaryKeys": [
+      "course_id"
+    ],
+    "foreignKeys": [
+      "dept_id->department.dept_id"
+    ],
+    "uniqueConstraints": [
+      "course_code"
+    ],
+    "checkConstraints": [
+      "course_course_id_not_null: course_id IS NOT NULL",
+      "course_dept_id_not_null: dept_id IS NOT NULL",
+      "course_course_code_not_null: course_code IS NOT NULL",
+      "course_course_name_not_null: course_name IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "course_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('course_course_id_seq'::regclass)"
+      },
+      {
+        "name": "dept_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "course_code",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "course_name",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "course_type",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "degree_level",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "duration_years",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "total_semesters",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "total_credits",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "intake_capacity",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "eligibility_criteria",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "department",
+    "rowCount": 4,
+    "primaryKeys": [
+      "dept_id"
+    ],
+    "foreignKeys": [],
+    "uniqueConstraints": [
+      "dept_code"
+    ],
+    "checkConstraints": [
+      "department_dept_id_not_null: dept_id IS NOT NULL",
+      "department_dept_code_not_null: dept_code IS NOT NULL",
+      "department_dept_name_not_null: dept_name IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "dept_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('department_dept_id_seq'::regclass)"
+      },
+      {
+        "name": "dept_code",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "dept_name",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "hod_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "office_location",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "building",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "floor_no",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "contact_email",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "contact_phone",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "established_year",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "enrollment",
+    "rowCount": 24,
+    "primaryKeys": [
+      "enrollment_id"
+    ],
+    "foreignKeys": [
+      "student_id->student.student_id",
+      "semester_id->semester.semester_id"
+    ],
+    "uniqueConstraints": [
+      "student_id",
+      "semester_id"
+    ],
+    "checkConstraints": [
+      "enrollment_enrollment_id_not_null: enrollment_id IS NOT NULL",
+      "enrollment_student_id_not_null: student_id IS NOT NULL",
+      "enrollment_semester_id_not_null: semester_id IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "enrollment_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('enrollment_enrollment_id_seq'::regclass)"
+      },
+      {
+        "name": "student_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "semester_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "enrollment_date",
+        "type": "date",
+        "nullable": true,
+        "default": "CURRENT_DATE"
+      },
+      {
+        "name": "registration_number",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "section",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "attendance_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "fee_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "academic_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "enroll_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      },
+      {
+        "name": "remarks",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "exam",
+    "rowCount": 12,
+    "primaryKeys": [
+      "exam_id"
+    ],
+    "foreignKeys": [
+      "semester_id->semester.semester_id"
+    ],
+    "uniqueConstraints": [],
+    "checkConstraints": [
+      "chk_exam_dates: ((exam_end_date IS NULL) OR (exam_start_date IS NULL) OR (exam_end_date >= exam_start_date))",
+      "exam_exam_id_not_null: exam_id IS NOT NULL",
+      "exam_semester_id_not_null: semester_id IS NOT NULL",
+      "exam_exam_name_not_null: exam_name IS NOT NULL",
+      "exam_exam_type_not_null: exam_type IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "exam_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('exam_exam_id_seq'::regclass)"
+      },
+      {
+        "name": "semester_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "exam_name",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "exam_type",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "academic_year",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "exam_start_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "exam_end_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Scheduled'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "faculty",
+    "rowCount": 12,
+    "primaryKeys": [
+      "faculty_id"
+    ],
+    "foreignKeys": [
+      "dept_id->department.dept_id"
+    ],
+    "uniqueConstraints": [
+      "employee_code",
+      "email"
+    ],
+    "checkConstraints": [
+      "faculty_faculty_id_not_null: faculty_id IS NOT NULL",
+      "faculty_employee_code_not_null: employee_code IS NOT NULL",
+      "faculty_dept_id_not_null: dept_id IS NOT NULL",
+      "faculty_first_name_not_null: first_name IS NOT NULL",
+      "faculty_email_not_null: email IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "faculty_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('faculty_faculty_id_seq'::regclass)"
+      },
+      {
+        "name": "employee_code",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "dept_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "first_name",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "last_name",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "email",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "phone_no",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "designation",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "qualification",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "specialization",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "joining_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "employment_type",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "experience_years",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "office_room",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "faculty_subject",
+    "rowCount": 24,
+    "primaryKeys": [
+      "faculty_subject_id"
+    ],
+    "foreignKeys": [
+      "faculty_id->faculty.faculty_id",
+      "subject_id->subject.subject_id",
+      "semester_id->semester.semester_id"
+    ],
+    "uniqueConstraints": [
+      "faculty_id",
+      "subject_id",
+      "semester_id",
+      "section"
+    ],
+    "checkConstraints": [
+      "faculty_subject_faculty_subject_id_not_null: faculty_subject_id IS NOT NULL",
+      "faculty_subject_faculty_id_not_null: faculty_id IS NOT NULL",
+      "faculty_subject_subject_id_not_null: subject_id IS NOT NULL",
+      "faculty_subject_semester_id_not_null: semester_id IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "faculty_subject_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('faculty_subject_faculty_subject_id_seq'::regclass)"
+      },
+      {
+        "name": "faculty_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "subject_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "semester_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "section",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "academic_year",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "assigned_date",
+        "type": "date",
+        "nullable": true,
+        "default": "CURRENT_DATE"
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      }
+    ]
+  },
+  {
+    "name": "fee",
+    "rowCount": 24,
+    "primaryKeys": [
+      "fee_id"
+    ],
+    "foreignKeys": [
+      "student_id->student.student_id",
+      "semester_id->semester.semester_id"
+    ],
+    "uniqueConstraints": [
+      "student_id",
+      "semester_id",
+      "fee_type"
+    ],
+    "checkConstraints": [
+      "chk_fee_amount: ((amount >= (0)::numeric) AND (paid_amount >= (0)::numeric) AND (paid_amount <= amount))",
+      "fee_fee_id_not_null: fee_id IS NOT NULL",
+      "fee_student_id_not_null: student_id IS NOT NULL",
+      "fee_semester_id_not_null: semester_id IS NOT NULL",
+      "fee_fee_type_not_null: fee_type IS NOT NULL",
+      "fee_amount_not_null: amount IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "fee_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('fee_fee_id_seq'::regclass)"
+      },
+      {
+        "name": "student_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "semester_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "fee_type",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "amount",
+        "type": "numeric",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "due_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "paid_amount",
+        "type": "numeric",
+        "nullable": true,
+        "default": "0"
+      },
+      {
+        "name": "payment_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "payment_mode",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "transaction_reference",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "payment_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Pending'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "grade",
+    "rowCount": 6,
+    "primaryKeys": [
+      "grade_id"
+    ],
+    "foreignKeys": [],
+    "uniqueConstraints": [
+      "grade_letter"
+    ],
+    "checkConstraints": [
+      "chk_grade_range: ((min_percentage >= 0) AND (max_percentage <= 100) AND (min_percentage <= max_percentage))",
+      "grade_grade_id_not_null: grade_id IS NOT NULL",
+      "grade_grade_letter_not_null: grade_letter IS NOT NULL",
+      "grade_min_percentage_not_null: min_percentage IS NOT NULL",
+      "grade_max_percentage_not_null: max_percentage IS NOT NULL",
+      "grade_grade_point_not_null: grade_point IS NOT NULL",
+      "chk_grade_point: ((grade_point >= (0)::numeric) AND (grade_point <= (10)::numeric))"
+    ],
+    "columns": [
+      {
+        "name": "grade_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('grade_grade_id_seq'::regclass)"
+      },
+      {
+        "name": "grade_letter",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "grade_point",
+        "type": "numeric",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "min_percentage",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "max_percentage",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "description",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "grade_class",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      }
+    ]
+  },
+  {
+    "name": "marks",
+    "rowCount": 144,
+    "primaryKeys": [
+      "mark_id"
+    ],
+    "foreignKeys": [
+      "enrollment_id->enrollment.enrollment_id",
+      "subject_id->subject.subject_id",
+      "exam_id->exam.exam_id",
+      "faculty_id->faculty.faculty_id"
+    ],
+    "uniqueConstraints": [
+      "enrollment_id",
+      "subject_id",
+      "exam_id",
+      "attempt_no"
+    ],
+    "checkConstraints": [
+      "chk_internal_marks: ((internal_marks IS NULL) OR (internal_marks >= (0)::numeric))",
+      "chk_external_marks: ((external_marks IS NULL) OR (external_marks >= (0)::numeric))",
+      "chk_total_marks: ((total_marks IS NULL) OR (total_marks >= (0)::numeric))",
+      "chk_attempt: (attempt_no >= 1)",
+      "marks_mark_id_not_null: mark_id IS NOT NULL",
+      "marks_enrollment_id_not_null: enrollment_id IS NOT NULL",
+      "marks_subject_id_not_null: subject_id IS NOT NULL",
+      "marks_exam_id_not_null: exam_id IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "mark_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('marks_mark_id_seq'::regclass)"
+      },
+      {
+        "name": "enrollment_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "subject_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "exam_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "faculty_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "internal_marks",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "external_marks",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "total_marks",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "exam_type",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "exam_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "attempt_no",
+        "type": "integer",
+        "nullable": true,
+        "default": "1"
+      },
+      {
+        "name": "result_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Published'::character varying"
+      },
+      {
+        "name": "remarks",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "entered_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "result",
+    "rowCount": 24,
+    "primaryKeys": [
+      "result_id"
+    ],
+    "foreignKeys": [
+      "student_id->student.student_id",
+      "semester_id->semester.semester_id",
+      "published_by->users.user_id"
+    ],
+    "uniqueConstraints": [
+      "student_id",
+      "semester_id"
+    ],
+    "checkConstraints": [
+      "chk_result_percentage: ((percentage IS NULL) OR ((percentage >= (0)::numeric) AND (percentage <= (100)::numeric)))",
+      "chk_result_backlogs: (backlogs >= 0)",
+      "result_result_id_not_null: result_id IS NOT NULL",
+      "result_student_id_not_null: student_id IS NOT NULL",
+      "result_semester_id_not_null: semester_id IS NOT NULL",
+      "chk_result_sgpa: ((sgpa IS NULL) OR ((sgpa >= (0)::numeric) AND (sgpa <= (10)::numeric)))",
+      "chk_result_cgpa: ((cgpa IS NULL) OR ((cgpa >= (0)::numeric) AND (cgpa <= (10)::numeric)))"
+    ],
+    "columns": [
+      {
+        "name": "result_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('result_result_id_seq'::regclass)"
+      },
+      {
+        "name": "student_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "semester_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "total_credits",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "earned_credits",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "total_marks",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "percentage",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "sgpa",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "cgpa",
+        "type": "numeric",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "backlogs",
+        "type": "integer",
+        "nullable": true,
+        "default": "0"
+      },
+      {
+        "name": "result_classification",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "result_status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Draft'::character varying"
+      },
+      {
+        "name": "published_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "published_by",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "remarks",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "semester",
+    "rowCount": 4,
+    "primaryKeys": [
+      "semester_id"
+    ],
+    "foreignKeys": [
+      "course_id->course.course_id"
+    ],
+    "uniqueConstraints": [
+      "course_id",
+      "semester_no",
+      "academic_year"
+    ],
+    "checkConstraints": [
+      "chk_semester_dates: ((end_date IS NULL) OR (start_date IS NULL) OR (end_date >= start_date))",
+      "semester_semester_id_not_null: semester_id IS NOT NULL",
+      "semester_course_id_not_null: course_id IS NOT NULL",
+      "semester_semester_no_not_null: semester_no IS NOT NULL",
+      "semester_academic_year_not_null: academic_year IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "semester_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('semester_semester_id_seq'::regclass)"
+      },
+      {
+        "name": "course_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "semester_no",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "academic_year",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "term_name",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "start_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "end_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "registration_start",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "registration_end",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "exam_start_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "exam_end_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "result_publish_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "student",
+    "rowCount": 24,
+    "primaryKeys": [
+      "student_id"
+    ],
+    "foreignKeys": [
+      "dept_id->department.dept_id",
+      "course_id->course.course_id"
+    ],
+    "uniqueConstraints": [
+      "roll_no",
+      "reg_no",
+      "email"
+    ],
+    "checkConstraints": [
+      "student_student_id_not_null: student_id IS NOT NULL",
+      "student_roll_no_not_null: roll_no IS NOT NULL",
+      "student_reg_no_not_null: reg_no IS NOT NULL",
+      "student_dept_id_not_null: dept_id IS NOT NULL",
+      "student_course_id_not_null: course_id IS NOT NULL",
+      "student_first_name_not_null: first_name IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "student_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('student_student_id_seq'::regclass)"
+      },
+      {
+        "name": "roll_no",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "reg_no",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "dept_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "course_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "first_name",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "middle_name",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "last_name",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "date_of_birth",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "gender",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "blood_group",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "email",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "alternate_email",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "phone_no",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "alternate_phone",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "address",
+        "type": "text",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "city",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "state",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "pincode",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "admission_year",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "admission_date",
+        "type": "date",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "current_semester",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "section",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "admission_type",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "category",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "nationality",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Indian'::character varying"
+      },
+      {
+        "name": "guardian_name",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "guardian_relation",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "guardian_phone",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "guardian_email",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "subject",
+    "rowCount": 24,
+    "primaryKeys": [
+      "subject_id"
+    ],
+    "foreignKeys": [
+      "course_id->course.course_id"
+    ],
+    "uniqueConstraints": [
+      "subject_code"
+    ],
+    "checkConstraints": [
+      "chk_subject_marks: ((max_marks > 0) AND (pass_marks >= 0) AND (pass_marks <= max_marks))",
+      "chk_subject_weightage: ((internal_weightage + external_weightage) = (100)::numeric)",
+      "subject_subject_id_not_null: subject_id IS NOT NULL",
+      "subject_course_id_not_null: course_id IS NOT NULL",
+      "subject_subject_code_not_null: subject_code IS NOT NULL",
+      "subject_subject_name_not_null: subject_name IS NOT NULL",
+      "subject_credits_not_null: credits IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "subject_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('subject_subject_id_seq'::regclass)"
+      },
+      {
+        "name": "course_id",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "subject_code",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "subject_name",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "short_name",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "credits",
+        "type": "integer",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "lecture_hours",
+        "type": "integer",
+        "nullable": true,
+        "default": "0"
+      },
+      {
+        "name": "tutorial_hours",
+        "type": "integer",
+        "nullable": true,
+        "default": "0"
+      },
+      {
+        "name": "practical_hours",
+        "type": "integer",
+        "nullable": true,
+        "default": "0"
+      },
+      {
+        "name": "subject_type",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "semester_no",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "max_marks",
+        "type": "integer",
+        "nullable": true,
+        "default": "100"
+      },
+      {
+        "name": "pass_marks",
+        "type": "integer",
+        "nullable": true,
+        "default": "40"
+      },
+      {
+        "name": "internal_weightage",
+        "type": "numeric",
+        "nullable": true,
+        "default": "40.00"
+      },
+      {
+        "name": "external_weightage",
+        "type": "numeric",
+        "nullable": true,
+        "default": "60.00"
+      },
+      {
+        "name": "is_elective",
+        "type": "boolean",
+        "nullable": true,
+        "default": "false"
+      },
+      {
+        "name": "is_lab",
+        "type": "boolean",
+        "nullable": true,
+        "default": "false"
+      },
+      {
+        "name": "status",
+        "type": "character varying",
+        "nullable": true,
+        "default": "'Active'::character varying"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  {
+    "name": "users",
+    "rowCount": 12,
+    "primaryKeys": [
+      "user_id"
+    ],
+    "foreignKeys": [
+      "faculty_id->faculty.faculty_id"
+    ],
+    "uniqueConstraints": [
+      "username",
+      "email"
+    ],
+    "checkConstraints": [
+      "chk_user_role: ((role)::text = ANY ((ARRAY['ADMIN'::character varying, 'FACULTY'::character varying, 'HOD'::character varying, 'EXAM_CELL'::character varying])::text[]))",
+      "users_user_id_not_null: user_id IS NOT NULL",
+      "users_username_not_null: username IS NOT NULL",
+      "users_password_hash_not_null: password_hash IS NOT NULL",
+      "users_name_not_null: name IS NOT NULL",
+      "users_role_not_null: role IS NOT NULL"
+    ],
+    "columns": [
+      {
+        "name": "user_id",
+        "type": "integer",
+        "nullable": false,
+        "default": "nextval('users_user_id_seq'::regclass)"
+      },
+      {
+        "name": "faculty_id",
+        "type": "integer",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "username",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "password_hash",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "name",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "email",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "phone_no",
+        "type": "character varying",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "role",
+        "type": "character varying",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "is_active",
+        "type": "boolean",
+        "nullable": true,
+        "default": "true"
+      },
+      {
+        "name": "failed_login_attempts",
+        "type": "integer",
+        "nullable": true,
+        "default": "0"
+      },
+      {
+        "name": "last_login",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "password_changed_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": null
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp without time zone",
+        "nullable": true,
+        "default": "CURRENT_TIMESTAMP"
+      }
+    ]
+  }
+]

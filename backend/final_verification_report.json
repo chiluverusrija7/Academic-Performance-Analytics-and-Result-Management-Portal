@@ -1,0 +1,236 @@
+[
+  {
+    "endpoint": "/api/health",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "PostgreSQL active connection verified",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/auth/login",
+    "method": "POST",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Faculty login verified against USERS table; no password leak",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/auth/login",
+    "method": "POST",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Student login verified against STUDENT table",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/auth/login",
+    "method": "POST",
+    "expectedStatus": 401,
+    "actualStatus": 401,
+    "passed": true,
+    "notes": "Invalid credentials properly rejected with 401",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "B.Tech Computer Science and Engineering",
+    "notes": "Retrieved 24 real students with Department & Course JOINs",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students?dept_id=1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Filtered students query parameters verified (found 6)",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Fetched student #1 profile + admission details",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students/99999",
+    "method": "GET",
+    "expectedStatus": 404,
+    "actualStatus": 404,
+    "passed": true,
+    "notes": "Non-existent student properly returned 404 Not Found",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students/abc",
+    "method": "GET",
+    "expectedStatus": 400,
+    "actualStatus": 400,
+    "passed": true,
+    "notes": "Invalid student ID parameter handled with 400 Bad Request",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students",
+    "method": "POST",
+    "expectedStatus": 201,
+    "actualStatus": 201,
+    "passed": 26,
+    "notes": "Created safe test student #26 in PostgreSQL",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students/26",
+    "method": "PUT",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Updated test student #26 in PostgreSQL",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/students/26",
+    "method": "DELETE",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Cleaned up test student #26 (zero residue)",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/attendance/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Fetched 6 attendance records + stats (100%)",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/attendance/99999",
+    "method": "GET",
+    "expectedStatus": 404,
+    "actualStatus": 404,
+    "passed": true,
+    "notes": "Non-existent student attendance returned 404",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/marks/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "CS501",
+    "notes": "Fetched 6 mark entries with Subject & Exam details",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/results/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Fetched semester results with SGPA (8.83) & CGPA (8.83)",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/fees/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Fetched fee history (Total: ₹60000, Paid: ₹60000)",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/faculty",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "Artificial Intelligence and Machine Learning",
+    "notes": "Retrieved 12 real faculty profiles with Department & Subject counts",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/faculty/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Fetched faculty #1 + 2 assigned subjects",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/subjects",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "B.Tech Computer Science and Engineering",
+    "notes": "Retrieved 24 subjects with Course & Department JOINs",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/subjects/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Fetched subject #1 (CS501 - Database Management Systems)",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/departments",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": true,
+    "notes": "Retrieved 4 departments (CSE, ECE, AIML, DS) with aggregate metrics",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/courses",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "CSE",
+    "notes": "Retrieved 4 courses with Department and enrolled student counts",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/semesters",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "2026-27",
+    "notes": "Retrieved 4 active semesters across courses",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/exams",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "BTECH-CSE",
+    "notes": "Retrieved 12 exams with Semester & Course JOINs",
+    "realDbVerified": "YES"
+  },
+  {
+    "endpoint": "/api/enrollments/1",
+    "method": "GET",
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "passed": "B.Tech Computer Science and Engineering",
+    "notes": "Fetched student enrollments with Semester & Course JOINs",
+    "realDbVerified": "YES"
+  }
+]

@@ -1,0 +1,4601 @@
+{
+  "admission": {
+    "tableName": "admission",
+    "rowCount": 24,
+    "columns": [
+      {
+        "column_name": "admission_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('admission_admission_id_seq'::regclass)"
+      },
+      {
+        "column_name": "student_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "application_no",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "application_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "admission_year",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "admission_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "category",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "entrance_exam",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "entrance_rank",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "previous_institution",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 150,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "previous_percentage",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 5,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "admission_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Pending'::character varying"
+      },
+      {
+        "column_name": "approved_by",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "approved_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "admission_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "student_id",
+        "foreign_table_name": "student",
+        "foreign_column_name": "student_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "CASCADE",
+        "constraint_name": "fk_admission_student"
+      },
+      {
+        "column_name": "approved_by",
+        "foreign_table_name": "users",
+        "foreign_column_name": "user_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "SET NULL",
+        "constraint_name": "fk_admission_approver"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "admission_application_no_key",
+        "column_name": "application_no"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_previous_percentage",
+        "check_clause": "((previous_percentage IS NULL) OR ((previous_percentage >= (0)::numeric) AND (previous_percentage <= (100)::numeric)))"
+      },
+      {
+        "constraint_name": "admission_admission_id_not_null",
+        "check_clause": "admission_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "admission_student_id_not_null",
+        "check_clause": "student_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "admission_application_no_not_null",
+        "check_clause": "application_no IS NOT NULL"
+      },
+      {
+        "constraint_name": "admission_application_date_not_null",
+        "check_clause": "application_date IS NOT NULL"
+      },
+      {
+        "constraint_name": "admission_admission_year_not_null",
+        "check_clause": "admission_year IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "admission_id": 1,
+        "student_id": 1,
+        "application_no": "APP2026001",
+        "application_date": "2026-05-31T18:30:00.000Z",
+        "admission_year": 2026,
+        "admission_type": null,
+        "category": null,
+        "entrance_exam": null,
+        "entrance_rank": null,
+        "previous_institution": null,
+        "previous_percentage": null,
+        "admission_status": "Pending",
+        "approved_by": null,
+        "approved_date": null,
+        "created_at": "2026-09-13T09:52:42.757Z"
+      },
+      {
+        "admission_id": 2,
+        "student_id": 2,
+        "application_no": "APP2026002",
+        "application_date": "2026-06-01T18:30:00.000Z",
+        "admission_year": 2026,
+        "admission_type": null,
+        "category": null,
+        "entrance_exam": null,
+        "entrance_rank": null,
+        "previous_institution": null,
+        "previous_percentage": null,
+        "admission_status": "Pending",
+        "approved_by": null,
+        "approved_date": null,
+        "created_at": "2026-09-13T09:52:42.757Z"
+      },
+      {
+        "admission_id": 3,
+        "student_id": 3,
+        "application_no": "APP2026003",
+        "application_date": "2026-06-02T18:30:00.000Z",
+        "admission_year": 2026,
+        "admission_type": null,
+        "category": null,
+        "entrance_exam": null,
+        "entrance_rank": null,
+        "previous_institution": null,
+        "previous_percentage": null,
+        "admission_status": "Pending",
+        "approved_by": null,
+        "approved_date": null,
+        "created_at": "2026-09-13T09:52:42.757Z"
+      },
+      {
+        "admission_id": 4,
+        "student_id": 4,
+        "application_no": "APP2026004",
+        "application_date": "2026-06-03T18:30:00.000Z",
+        "admission_year": 2026,
+        "admission_type": null,
+        "category": null,
+        "entrance_exam": null,
+        "entrance_rank": null,
+        "previous_institution": null,
+        "previous_percentage": null,
+        "admission_status": "Pending",
+        "approved_by": null,
+        "approved_date": null,
+        "created_at": "2026-09-13T09:52:42.757Z"
+      },
+      {
+        "admission_id": 5,
+        "student_id": 5,
+        "application_no": "APP2026005",
+        "application_date": "2026-06-04T18:30:00.000Z",
+        "admission_year": 2026,
+        "admission_type": null,
+        "category": null,
+        "entrance_exam": null,
+        "entrance_rank": null,
+        "previous_institution": null,
+        "previous_percentage": null,
+        "admission_status": "Pending",
+        "approved_by": null,
+        "approved_date": null,
+        "created_at": "2026-09-13T09:52:42.757Z"
+      }
+    ]
+  },
+  "attendance": {
+    "tableName": "attendance",
+    "rowCount": 144,
+    "columns": [
+      {
+        "column_name": "attendance_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('attendance_attendance_id_seq'::regclass)"
+      },
+      {
+        "column_name": "enrollment_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "subject_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "faculty_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "class_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "period_no",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "is_present",
+        "data_type": "boolean",
+        "udt_name": "bool",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "remarks",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "recorded_by",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "recorded_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "attendance_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "subject_id",
+        "foreign_table_name": "subject",
+        "foreign_column_name": "subject_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_attendance_subject"
+      },
+      {
+        "column_name": "enrollment_id",
+        "foreign_table_name": "enrollment",
+        "foreign_column_name": "enrollment_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "CASCADE",
+        "constraint_name": "fk_attendance_enrollment"
+      },
+      {
+        "column_name": "faculty_id",
+        "foreign_table_name": "faculty",
+        "foreign_column_name": "faculty_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "SET NULL",
+        "constraint_name": "fk_attendance_faculty"
+      },
+      {
+        "column_name": "recorded_by",
+        "foreign_table_name": "users",
+        "foreign_column_name": "user_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "SET NULL",
+        "constraint_name": "fk_attendance_recorded_by"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "uq_attendance_entry",
+        "column_name": "enrollment_id"
+      },
+      {
+        "constraint_name": "uq_attendance_entry",
+        "column_name": "subject_id"
+      },
+      {
+        "constraint_name": "uq_attendance_entry",
+        "column_name": "class_date"
+      },
+      {
+        "constraint_name": "uq_attendance_entry",
+        "column_name": "period_no"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "attendance_attendance_id_not_null",
+        "check_clause": "attendance_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "attendance_enrollment_id_not_null",
+        "check_clause": "enrollment_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "attendance_subject_id_not_null",
+        "check_clause": "subject_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "attendance_class_date_not_null",
+        "check_clause": "class_date IS NOT NULL"
+      },
+      {
+        "constraint_name": "attendance_is_present_not_null",
+        "check_clause": "is_present IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "attendance_id": 1,
+        "enrollment_id": 1,
+        "subject_id": 1,
+        "faculty_id": 1,
+        "class_date": "2026-08-03T18:30:00.000Z",
+        "period_no": 1,
+        "is_present": true,
+        "remarks": null,
+        "recorded_by": 1,
+        "recorded_at": "2026-08-04T10:30:00.000Z"
+      },
+      {
+        "attendance_id": 2,
+        "enrollment_id": 1,
+        "subject_id": 2,
+        "faculty_id": 1,
+        "class_date": "2026-08-04T18:30:00.000Z",
+        "period_no": 1,
+        "is_present": true,
+        "remarks": null,
+        "recorded_by": 1,
+        "recorded_at": "2026-08-05T10:30:00.000Z"
+      },
+      {
+        "attendance_id": 3,
+        "enrollment_id": 1,
+        "subject_id": 3,
+        "faculty_id": 2,
+        "class_date": "2026-08-05T18:30:00.000Z",
+        "period_no": 1,
+        "is_present": true,
+        "remarks": null,
+        "recorded_by": 2,
+        "recorded_at": "2026-08-06T10:30:00.000Z"
+      },
+      {
+        "attendance_id": 4,
+        "enrollment_id": 1,
+        "subject_id": 4,
+        "faculty_id": 2,
+        "class_date": "2026-08-06T18:30:00.000Z",
+        "period_no": 1,
+        "is_present": true,
+        "remarks": null,
+        "recorded_by": 2,
+        "recorded_at": "2026-08-07T10:30:00.000Z"
+      },
+      {
+        "attendance_id": 5,
+        "enrollment_id": 1,
+        "subject_id": 5,
+        "faculty_id": 3,
+        "class_date": "2026-08-07T18:30:00.000Z",
+        "period_no": 1,
+        "is_present": true,
+        "remarks": null,
+        "recorded_by": 3,
+        "recorded_at": "2026-08-08T10:30:00.000Z"
+      }
+    ]
+  },
+  "course": {
+    "tableName": "course",
+    "rowCount": 4,
+    "columns": [
+      {
+        "column_name": "course_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('course_course_id_seq'::regclass)"
+      },
+      {
+        "column_name": "dept_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "course_code",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "course_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "course_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "degree_level",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "duration_years",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "total_semesters",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "total_credits",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "intake_capacity",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "eligibility_criteria",
+        "data_type": "text",
+        "udt_name": "text",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "description",
+        "data_type": "text",
+        "udt_name": "text",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "course_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "dept_id",
+        "foreign_table_name": "department",
+        "foreign_column_name": "dept_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_course_department"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "course_course_code_key",
+        "column_name": "course_code"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "course_course_id_not_null",
+        "check_clause": "course_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "course_dept_id_not_null",
+        "check_clause": "dept_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "course_course_code_not_null",
+        "check_clause": "course_code IS NOT NULL"
+      },
+      {
+        "constraint_name": "course_course_name_not_null",
+        "check_clause": "course_name IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "course_id": 1,
+        "dept_id": 1,
+        "course_code": "BTECH-CSE",
+        "course_name": "B.Tech Computer Science and Engineering",
+        "course_type": "Undergraduate",
+        "degree_level": "Bachelor",
+        "duration_years": 4,
+        "total_semesters": 8,
+        "total_credits": 160,
+        "intake_capacity": 180,
+        "eligibility_criteria": "10+2 with Mathematics and qualifying entrance examination",
+        "description": "Undergraduate programme in computer science and engineering.",
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:44.146Z",
+        "updated_at": "2026-09-13T08:02:44.146Z"
+      },
+      {
+        "course_id": 2,
+        "dept_id": 2,
+        "course_code": "BTECH-ECE",
+        "course_name": "B.Tech Electronics and Communication Engineering",
+        "course_type": "Undergraduate",
+        "degree_level": "Bachelor",
+        "duration_years": 4,
+        "total_semesters": 8,
+        "total_credits": 160,
+        "intake_capacity": 120,
+        "eligibility_criteria": "10+2 with Mathematics and qualifying entrance examination",
+        "description": "Undergraduate programme in electronics and communication engineering.",
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:44.146Z",
+        "updated_at": "2026-09-13T08:02:44.146Z"
+      },
+      {
+        "course_id": 3,
+        "dept_id": 3,
+        "course_code": "BTECH-AIML",
+        "course_name": "B.Tech Artificial Intelligence and Machine Learning",
+        "course_type": "Undergraduate",
+        "degree_level": "Bachelor",
+        "duration_years": 4,
+        "total_semesters": 8,
+        "total_credits": 160,
+        "intake_capacity": 120,
+        "eligibility_criteria": "10+2 with Mathematics and qualifying entrance examination",
+        "description": "Undergraduate programme focused on artificial intelligence and machine learning.",
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:44.146Z",
+        "updated_at": "2026-09-13T08:02:44.146Z"
+      },
+      {
+        "course_id": 4,
+        "dept_id": 4,
+        "course_code": "BTECH-DS",
+        "course_name": "B.Tech Data Science",
+        "course_type": "Undergraduate",
+        "degree_level": "Bachelor",
+        "duration_years": 4,
+        "total_semesters": 8,
+        "total_credits": 160,
+        "intake_capacity": 90,
+        "eligibility_criteria": "10+2 with Mathematics and qualifying entrance examination",
+        "description": "Undergraduate programme focused on data science and analytics.",
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:44.146Z",
+        "updated_at": "2026-09-13T08:02:44.146Z"
+      }
+    ]
+  },
+  "department": {
+    "tableName": "department",
+    "rowCount": 4,
+    "columns": [
+      {
+        "column_name": "dept_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('department_dept_id_seq'::regclass)"
+      },
+      {
+        "column_name": "dept_code",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 10,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "dept_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "hod_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "office_location",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "building",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "floor_no",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "contact_email",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "contact_phone",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 15,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "established_year",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "dept_id"
+    ],
+    "foreignKeys": [],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "department_dept_code_key",
+        "column_name": "dept_code"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "department_dept_id_not_null",
+        "check_clause": "dept_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "department_dept_code_not_null",
+        "check_clause": "dept_code IS NOT NULL"
+      },
+      {
+        "constraint_name": "department_dept_name_not_null",
+        "check_clause": "dept_name IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "dept_id": 1,
+        "dept_code": "CSE",
+        "dept_name": "Computer Science and Engineering",
+        "hod_id": null,
+        "office_location": "CSE Block - Room 201",
+        "building": "Block A",
+        "floor_no": 2,
+        "contact_email": "cse@eduinsight.edu",
+        "contact_phone": "9876501001",
+        "established_year": 2010,
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:09.287Z",
+        "updated_at": "2026-09-13T08:02:09.287Z"
+      },
+      {
+        "dept_id": 2,
+        "dept_code": "ECE",
+        "dept_name": "Electronics and Communication Engineering",
+        "hod_id": null,
+        "office_location": "ECE Block - Room 105",
+        "building": "Block B",
+        "floor_no": 1,
+        "contact_email": "ece@eduinsight.edu",
+        "contact_phone": "9876501002",
+        "established_year": 2008,
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:09.287Z",
+        "updated_at": "2026-09-13T08:02:09.287Z"
+      },
+      {
+        "dept_id": 3,
+        "dept_code": "AIML",
+        "dept_name": "Artificial Intelligence and Machine Learning",
+        "hod_id": null,
+        "office_location": "AI Block - Room 301",
+        "building": "Block C",
+        "floor_no": 3,
+        "contact_email": "aiml@eduinsight.edu",
+        "contact_phone": "9876501003",
+        "established_year": 2022,
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:09.287Z",
+        "updated_at": "2026-09-13T08:02:09.287Z"
+      },
+      {
+        "dept_id": 4,
+        "dept_code": "DS",
+        "dept_name": "Data Science",
+        "hod_id": null,
+        "office_location": "DS Block - Room 204",
+        "building": "Block C",
+        "floor_no": 2,
+        "contact_email": "ds@eduinsight.edu",
+        "contact_phone": "9876501004",
+        "established_year": 2021,
+        "status": "Active",
+        "created_at": "2026-09-13T08:02:09.287Z",
+        "updated_at": "2026-09-13T08:02:09.287Z"
+      }
+    ]
+  },
+  "enrollment": {
+    "tableName": "enrollment",
+    "rowCount": 24,
+    "columns": [
+      {
+        "column_name": "enrollment_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('enrollment_enrollment_id_seq'::regclass)"
+      },
+      {
+        "column_name": "student_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "semester_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "enrollment_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_DATE"
+      },
+      {
+        "column_name": "registration_number",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "section",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 10,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "attendance_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "fee_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "academic_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "enroll_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      },
+      {
+        "column_name": "remarks",
+        "data_type": "text",
+        "udt_name": "text",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "enrollment_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "student_id",
+        "foreign_table_name": "student",
+        "foreign_column_name": "student_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "CASCADE",
+        "constraint_name": "fk_enrollment_student"
+      },
+      {
+        "column_name": "semester_id",
+        "foreign_table_name": "semester",
+        "foreign_column_name": "semester_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_enrollment_semester"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "uq_student_semester",
+        "column_name": "student_id"
+      },
+      {
+        "constraint_name": "uq_student_semester",
+        "column_name": "semester_id"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "enrollment_enrollment_id_not_null",
+        "check_clause": "enrollment_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "enrollment_student_id_not_null",
+        "check_clause": "student_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "enrollment_semester_id_not_null",
+        "check_clause": "semester_id IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "enrollment_id": 1,
+        "student_id": 1,
+        "semester_id": 1,
+        "enrollment_date": "2026-07-01T18:30:00.000Z",
+        "registration_number": "REG2026CSE001",
+        "section": "A",
+        "attendance_status": "Eligible",
+        "fee_status": "Paid",
+        "academic_status": "Regular",
+        "enroll_status": "Active",
+        "remarks": "Good academic standing",
+        "created_at": "2026-09-13T08:18:20.717Z",
+        "updated_at": "2026-09-13T08:18:20.717Z"
+      },
+      {
+        "enrollment_id": 2,
+        "student_id": 2,
+        "semester_id": 1,
+        "enrollment_date": "2026-07-01T18:30:00.000Z",
+        "registration_number": "REG2026CSE002",
+        "section": "A",
+        "attendance_status": "Eligible",
+        "fee_status": "Paid",
+        "academic_status": "Regular",
+        "enroll_status": "Active",
+        "remarks": "Good academic standing",
+        "created_at": "2026-09-13T08:18:20.717Z",
+        "updated_at": "2026-09-13T08:18:20.717Z"
+      },
+      {
+        "enrollment_id": 3,
+        "student_id": 3,
+        "semester_id": 1,
+        "enrollment_date": "2026-07-01T18:30:00.000Z",
+        "registration_number": "REG2026CSE003",
+        "section": "A",
+        "attendance_status": "Eligible",
+        "fee_status": "Pending",
+        "academic_status": "Regular",
+        "enroll_status": "Active",
+        "remarks": "Fee payment pending",
+        "created_at": "2026-09-13T08:18:20.717Z",
+        "updated_at": "2026-09-13T08:18:20.717Z"
+      },
+      {
+        "enrollment_id": 4,
+        "student_id": 4,
+        "semester_id": 1,
+        "enrollment_date": "2026-07-01T18:30:00.000Z",
+        "registration_number": "REG2026CSE004",
+        "section": "B",
+        "attendance_status": "Eligible",
+        "fee_status": "Paid",
+        "academic_status": "Regular",
+        "enroll_status": "Active",
+        "remarks": null,
+        "created_at": "2026-09-13T08:18:20.717Z",
+        "updated_at": "2026-09-13T08:18:20.717Z"
+      },
+      {
+        "enrollment_id": 5,
+        "student_id": 5,
+        "semester_id": 1,
+        "enrollment_date": "2026-07-01T18:30:00.000Z",
+        "registration_number": "REG2026CSE005",
+        "section": "B",
+        "attendance_status": "Eligible",
+        "fee_status": "Paid",
+        "academic_status": "Regular",
+        "enroll_status": "Active",
+        "remarks": null,
+        "created_at": "2026-09-13T08:18:20.717Z",
+        "updated_at": "2026-09-13T08:18:20.717Z"
+      }
+    ]
+  },
+  "exam": {
+    "tableName": "exam",
+    "rowCount": 12,
+    "columns": [
+      {
+        "column_name": "exam_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('exam_exam_id_seq'::regclass)"
+      },
+      {
+        "column_name": "semester_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "academic_year",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 9,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_start_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_end_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Scheduled'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "exam_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "semester_id",
+        "foreign_table_name": "semester",
+        "foreign_column_name": "semester_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_exam_semester"
+      }
+    ],
+    "uniqueConstraints": [],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_exam_dates",
+        "check_clause": "((exam_end_date IS NULL) OR (exam_start_date IS NULL) OR (exam_end_date >= exam_start_date))"
+      },
+      {
+        "constraint_name": "exam_exam_id_not_null",
+        "check_clause": "exam_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "exam_semester_id_not_null",
+        "check_clause": "semester_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "exam_exam_name_not_null",
+        "check_clause": "exam_name IS NOT NULL"
+      },
+      {
+        "constraint_name": "exam_exam_type_not_null",
+        "check_clause": "exam_type IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "exam_id": 1,
+        "semester_id": 1,
+        "exam_name": "Internal Assessment 1",
+        "exam_type": "Internal",
+        "academic_year": "2026-27",
+        "exam_start_date": "2026-08-09T18:30:00.000Z",
+        "exam_end_date": "2026-08-13T18:30:00.000Z",
+        "status": "Completed",
+        "created_at": "2026-09-13T08:20:27.134Z"
+      },
+      {
+        "exam_id": 2,
+        "semester_id": 1,
+        "exam_name": "Internal Assessment 2",
+        "exam_type": "Internal",
+        "academic_year": "2026-27",
+        "exam_start_date": "2026-10-04T18:30:00.000Z",
+        "exam_end_date": "2026-10-08T18:30:00.000Z",
+        "status": "Completed",
+        "created_at": "2026-09-13T08:20:27.134Z"
+      },
+      {
+        "exam_id": 3,
+        "semester_id": 1,
+        "exam_name": "End Semester Examination",
+        "exam_type": "End Semester",
+        "academic_year": "2026-27",
+        "exam_start_date": "2026-12-04T18:30:00.000Z",
+        "exam_end_date": "2026-12-19T18:30:00.000Z",
+        "status": "Scheduled",
+        "created_at": "2026-09-13T08:20:27.134Z"
+      },
+      {
+        "exam_id": 4,
+        "semester_id": 2,
+        "exam_name": "Internal Assessment 1",
+        "exam_type": "Internal",
+        "academic_year": "2026-27",
+        "exam_start_date": "2026-08-09T18:30:00.000Z",
+        "exam_end_date": "2026-08-13T18:30:00.000Z",
+        "status": "Completed",
+        "created_at": "2026-09-13T08:20:27.134Z"
+      },
+      {
+        "exam_id": 5,
+        "semester_id": 2,
+        "exam_name": "Internal Assessment 2",
+        "exam_type": "Internal",
+        "academic_year": "2026-27",
+        "exam_start_date": "2026-10-04T18:30:00.000Z",
+        "exam_end_date": "2026-10-08T18:30:00.000Z",
+        "status": "Completed",
+        "created_at": "2026-09-13T08:20:27.134Z"
+      }
+    ]
+  },
+  "faculty": {
+    "tableName": "faculty",
+    "rowCount": 12,
+    "columns": [
+      {
+        "column_name": "faculty_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('faculty_faculty_id_seq'::regclass)"
+      },
+      {
+        "column_name": "employee_code",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "dept_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "first_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "last_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "phone_no",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 15,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "designation",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "qualification",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "specialization",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "joining_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "employment_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "experience_years",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 4,
+        "numeric_scale": 1,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "office_room",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "faculty_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "dept_id",
+        "foreign_table_name": "department",
+        "foreign_column_name": "dept_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_faculty_department"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "faculty_employee_code_key",
+        "column_name": "employee_code"
+      },
+      {
+        "constraint_name": "faculty_email_key",
+        "column_name": "email"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "faculty_faculty_id_not_null",
+        "check_clause": "faculty_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "faculty_employee_code_not_null",
+        "check_clause": "employee_code IS NOT NULL"
+      },
+      {
+        "constraint_name": "faculty_dept_id_not_null",
+        "check_clause": "dept_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "faculty_first_name_not_null",
+        "check_clause": "first_name IS NOT NULL"
+      },
+      {
+        "constraint_name": "faculty_email_not_null",
+        "check_clause": "email IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "faculty_id": 1,
+        "employee_code": "FAC-AIML-003",
+        "dept_id": 3,
+        "first_name": "Suresh",
+        "last_name": "Bhat",
+        "email": "suresh.bhat@eduinsight.edu",
+        "phone_no": "9876502009",
+        "designation": "Assistant Professor",
+        "qualification": "M.Tech",
+        "specialization": "Natural Language Processing",
+        "joining_date": "2022-08-04T18:30:00.000Z",
+        "employment_type": "Full-Time",
+        "experience_years": "4.0",
+        "office_room": "AI-303",
+        "status": "Active",
+        "created_at": "2026-09-13T08:07:07.897Z",
+        "updated_at": "2026-09-13T08:07:07.897Z"
+      },
+      {
+        "faculty_id": 2,
+        "employee_code": "FAC-DS-001",
+        "dept_id": 4,
+        "first_name": "Meera",
+        "last_name": "Shah",
+        "email": "meera.shah@eduinsight.edu",
+        "phone_no": "9876502010",
+        "designation": "Professor",
+        "qualification": "PhD",
+        "specialization": "Data Analytics",
+        "joining_date": "2015-06-30T18:30:00.000Z",
+        "employment_type": "Full-Time",
+        "experience_years": "11.0",
+        "office_room": "DS-201",
+        "status": "Active",
+        "created_at": "2026-09-13T08:07:07.897Z",
+        "updated_at": "2026-09-13T08:07:07.897Z"
+      },
+      {
+        "faculty_id": 3,
+        "employee_code": "FAC-DS-002",
+        "dept_id": 4,
+        "first_name": "Anil",
+        "last_name": "Varma",
+        "email": "anil.varma@eduinsight.edu",
+        "phone_no": "9876502011",
+        "designation": "Associate Professor",
+        "qualification": "PhD",
+        "specialization": "Big Data",
+        "joining_date": "2018-06-24T18:30:00.000Z",
+        "employment_type": "Full-Time",
+        "experience_years": "8.0",
+        "office_room": "DS-202",
+        "status": "Active",
+        "created_at": "2026-09-13T08:07:07.897Z",
+        "updated_at": "2026-09-13T08:07:07.897Z"
+      },
+      {
+        "faculty_id": 4,
+        "employee_code": "FAC-DS-003",
+        "dept_id": 4,
+        "first_name": "Divya",
+        "last_name": "Menon",
+        "email": "divya.menon@eduinsight.edu",
+        "phone_no": "9876502012",
+        "designation": "Assistant Professor",
+        "qualification": "M.Tech",
+        "specialization": "Data Mining",
+        "joining_date": "2021-07-19T18:30:00.000Z",
+        "employment_type": "Full-Time",
+        "experience_years": "5.0",
+        "office_room": "DS-203",
+        "status": "Active",
+        "created_at": "2026-09-13T08:07:07.897Z",
+        "updated_at": "2026-09-13T08:07:07.897Z"
+      },
+      {
+        "faculty_id": 5,
+        "employee_code": "FAC-CSE-001",
+        "dept_id": 1,
+        "first_name": "Rahul",
+        "last_name": "Sharma",
+        "email": "rahul.sharma@eduinsight.edu",
+        "phone_no": "9876502001",
+        "designation": "Professor",
+        "qualification": "PhD",
+        "specialization": "Database Systems",
+        "joining_date": "2015-06-14T18:30:00.000Z",
+        "employment_type": "Full-Time",
+        "experience_years": "11.0",
+        "office_room": "CSE-201",
+        "status": "Active",
+        "created_at": "2026-09-13T08:09:10.884Z",
+        "updated_at": "2026-09-13T08:09:10.884Z"
+      }
+    ]
+  },
+  "faculty_subject": {
+    "tableName": "faculty_subject",
+    "rowCount": 24,
+    "columns": [
+      {
+        "column_name": "faculty_subject_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('faculty_subject_faculty_subject_id_seq'::regclass)"
+      },
+      {
+        "column_name": "faculty_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "subject_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "semester_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "section",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 10,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "academic_year",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 9,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "assigned_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_DATE"
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      }
+    ],
+    "primaryKeys": [
+      "faculty_subject_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "faculty_id",
+        "foreign_table_name": "faculty",
+        "foreign_column_name": "faculty_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_fs_faculty"
+      },
+      {
+        "column_name": "subject_id",
+        "foreign_table_name": "subject",
+        "foreign_column_name": "subject_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_fs_subject"
+      },
+      {
+        "column_name": "semester_id",
+        "foreign_table_name": "semester",
+        "foreign_column_name": "semester_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_fs_semester"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "uq_faculty_subject_semester",
+        "column_name": "faculty_id"
+      },
+      {
+        "constraint_name": "uq_faculty_subject_semester",
+        "column_name": "subject_id"
+      },
+      {
+        "constraint_name": "uq_faculty_subject_semester",
+        "column_name": "semester_id"
+      },
+      {
+        "constraint_name": "uq_faculty_subject_semester",
+        "column_name": "section"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "faculty_subject_faculty_subject_id_not_null",
+        "check_clause": "faculty_subject_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "faculty_subject_faculty_id_not_null",
+        "check_clause": "faculty_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "faculty_subject_subject_id_not_null",
+        "check_clause": "subject_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "faculty_subject_semester_id_not_null",
+        "check_clause": "semester_id IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "faculty_subject_id": 1,
+        "faculty_id": 1,
+        "subject_id": 1,
+        "semester_id": 1,
+        "section": "A",
+        "academic_year": "2026-27",
+        "assigned_date": "2026-06-30T18:30:00.000Z",
+        "status": "Active"
+      },
+      {
+        "faculty_subject_id": 2,
+        "faculty_id": 1,
+        "subject_id": 2,
+        "semester_id": 1,
+        "section": "A",
+        "academic_year": "2026-27",
+        "assigned_date": "2026-06-30T18:30:00.000Z",
+        "status": "Active"
+      },
+      {
+        "faculty_subject_id": 3,
+        "faculty_id": 2,
+        "subject_id": 3,
+        "semester_id": 1,
+        "section": "A",
+        "academic_year": "2026-27",
+        "assigned_date": "2026-06-30T18:30:00.000Z",
+        "status": "Active"
+      },
+      {
+        "faculty_subject_id": 4,
+        "faculty_id": 2,
+        "subject_id": 4,
+        "semester_id": 1,
+        "section": "A",
+        "academic_year": "2026-27",
+        "assigned_date": "2026-06-30T18:30:00.000Z",
+        "status": "Active"
+      },
+      {
+        "faculty_subject_id": 5,
+        "faculty_id": 3,
+        "subject_id": 5,
+        "semester_id": 1,
+        "section": "B",
+        "academic_year": "2026-27",
+        "assigned_date": "2026-06-30T18:30:00.000Z",
+        "status": "Active"
+      }
+    ]
+  },
+  "fee": {
+    "tableName": "fee",
+    "rowCount": 24,
+    "columns": [
+      {
+        "column_name": "fee_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('fee_fee_id_seq'::regclass)"
+      },
+      {
+        "column_name": "student_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "semester_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "fee_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "amount",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 10,
+        "numeric_scale": 2,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "due_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "paid_amount",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 10,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": "0"
+      },
+      {
+        "column_name": "payment_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "payment_mode",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "transaction_reference",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "payment_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Pending'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "fee_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "student_id",
+        "foreign_table_name": "student",
+        "foreign_column_name": "student_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "CASCADE",
+        "constraint_name": "fk_fee_student"
+      },
+      {
+        "column_name": "semester_id",
+        "foreign_table_name": "semester",
+        "foreign_column_name": "semester_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_fee_semester"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "uq_student_semester_fee",
+        "column_name": "student_id"
+      },
+      {
+        "constraint_name": "uq_student_semester_fee",
+        "column_name": "semester_id"
+      },
+      {
+        "constraint_name": "uq_student_semester_fee",
+        "column_name": "fee_type"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_fee_amount",
+        "check_clause": "((amount >= (0)::numeric) AND (paid_amount >= (0)::numeric) AND (paid_amount <= amount))"
+      },
+      {
+        "constraint_name": "fee_fee_id_not_null",
+        "check_clause": "fee_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "fee_student_id_not_null",
+        "check_clause": "student_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "fee_semester_id_not_null",
+        "check_clause": "semester_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "fee_fee_type_not_null",
+        "check_clause": "fee_type IS NOT NULL"
+      },
+      {
+        "constraint_name": "fee_amount_not_null",
+        "check_clause": "amount IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "fee_id": 1,
+        "student_id": 1,
+        "semester_id": 1,
+        "fee_type": "Tuition Fee",
+        "amount": "60000.00",
+        "due_date": "2026-07-14T18:30:00.000Z",
+        "paid_amount": "60000.00",
+        "payment_date": "2026-07-09T18:30:00.000Z",
+        "payment_mode": "Online",
+        "transaction_reference": "TXN20260001",
+        "payment_status": "Paid",
+        "created_at": "2026-09-13T10:06:52.273Z",
+        "updated_at": "2026-09-13T10:06:52.273Z"
+      },
+      {
+        "fee_id": 2,
+        "student_id": 2,
+        "semester_id": 1,
+        "fee_type": "Tuition Fee",
+        "amount": "60000.00",
+        "due_date": "2026-07-14T18:30:00.000Z",
+        "paid_amount": "60000.00",
+        "payment_date": "2026-07-10T18:30:00.000Z",
+        "payment_mode": "Online",
+        "transaction_reference": "TXN20260002",
+        "payment_status": "Paid",
+        "created_at": "2026-09-13T10:06:52.273Z",
+        "updated_at": "2026-09-13T10:06:52.273Z"
+      },
+      {
+        "fee_id": 3,
+        "student_id": 3,
+        "semester_id": 1,
+        "fee_type": "Tuition Fee",
+        "amount": "60000.00",
+        "due_date": "2026-07-14T18:30:00.000Z",
+        "paid_amount": "55000.00",
+        "payment_date": "2026-07-11T18:30:00.000Z",
+        "payment_mode": "Online",
+        "transaction_reference": "TXN20260003",
+        "payment_status": "Partial",
+        "created_at": "2026-09-13T10:06:52.273Z",
+        "updated_at": "2026-09-13T10:06:52.273Z"
+      },
+      {
+        "fee_id": 4,
+        "student_id": 4,
+        "semester_id": 1,
+        "fee_type": "Tuition Fee",
+        "amount": "60000.00",
+        "due_date": "2026-07-14T18:30:00.000Z",
+        "paid_amount": "60000.00",
+        "payment_date": "2026-07-11T18:30:00.000Z",
+        "payment_mode": "UPI",
+        "transaction_reference": "TXN20260004",
+        "payment_status": "Paid",
+        "created_at": "2026-09-13T10:06:52.273Z",
+        "updated_at": "2026-09-13T10:06:52.273Z"
+      },
+      {
+        "fee_id": 5,
+        "student_id": 5,
+        "semester_id": 1,
+        "fee_type": "Tuition Fee",
+        "amount": "60000.00",
+        "due_date": "2026-07-14T18:30:00.000Z",
+        "paid_amount": "50000.00",
+        "payment_date": "2026-07-12T18:30:00.000Z",
+        "payment_mode": "Online",
+        "transaction_reference": "TXN20260005",
+        "payment_status": "Partial",
+        "created_at": "2026-09-13T10:06:52.273Z",
+        "updated_at": "2026-09-13T10:06:52.273Z"
+      }
+    ]
+  },
+  "grade": {
+    "tableName": "grade",
+    "rowCount": 6,
+    "columns": [
+      {
+        "column_name": "grade_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('grade_grade_id_seq'::regclass)"
+      },
+      {
+        "column_name": "grade_letter",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 2,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "grade_point",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 4,
+        "numeric_scale": 2,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "min_percentage",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "max_percentage",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "description",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "grade_class",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      }
+    ],
+    "primaryKeys": [
+      "grade_id"
+    ],
+    "foreignKeys": [],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "grade_grade_letter_key",
+        "column_name": "grade_letter"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_grade_range",
+        "check_clause": "((min_percentage >= 0) AND (max_percentage <= 100) AND (min_percentage <= max_percentage))"
+      },
+      {
+        "constraint_name": "grade_grade_id_not_null",
+        "check_clause": "grade_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "grade_grade_letter_not_null",
+        "check_clause": "grade_letter IS NOT NULL"
+      },
+      {
+        "constraint_name": "grade_min_percentage_not_null",
+        "check_clause": "min_percentage IS NOT NULL"
+      },
+      {
+        "constraint_name": "grade_max_percentage_not_null",
+        "check_clause": "max_percentage IS NOT NULL"
+      },
+      {
+        "constraint_name": "grade_grade_point_not_null",
+        "check_clause": "grade_point IS NOT NULL"
+      },
+      {
+        "constraint_name": "chk_grade_point",
+        "check_clause": "((grade_point >= (0)::numeric) AND (grade_point <= (10)::numeric))"
+      }
+    ],
+    "sampleRows": [
+      {
+        "grade_id": 1,
+        "grade_letter": "A+",
+        "grade_point": "10.00",
+        "min_percentage": 90,
+        "max_percentage": 100,
+        "description": "Outstanding performance",
+        "grade_class": "Distinction",
+        "status": "Active"
+      },
+      {
+        "grade_id": 2,
+        "grade_letter": "A",
+        "grade_point": "9.00",
+        "min_percentage": 80,
+        "max_percentage": 89,
+        "description": "Excellent performance",
+        "grade_class": "Distinction",
+        "status": "Active"
+      },
+      {
+        "grade_id": 3,
+        "grade_letter": "B+",
+        "grade_point": "8.00",
+        "min_percentage": 70,
+        "max_percentage": 79,
+        "description": "Very good performance",
+        "grade_class": "First Class",
+        "status": "Active"
+      },
+      {
+        "grade_id": 4,
+        "grade_letter": "B",
+        "grade_point": "7.00",
+        "min_percentage": 60,
+        "max_percentage": 69,
+        "description": "Good performance",
+        "grade_class": "First Class",
+        "status": "Active"
+      },
+      {
+        "grade_id": 5,
+        "grade_letter": "C",
+        "grade_point": "6.00",
+        "min_percentage": 50,
+        "max_percentage": 59,
+        "description": "Satisfactory performance",
+        "grade_class": "Pass Class",
+        "status": "Active"
+      }
+    ]
+  },
+  "marks": {
+    "tableName": "marks",
+    "rowCount": 144,
+    "columns": [
+      {
+        "column_name": "mark_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('marks_mark_id_seq'::regclass)"
+      },
+      {
+        "column_name": "enrollment_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "subject_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "faculty_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "internal_marks",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 5,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "external_marks",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 5,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "total_marks",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 5,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "attempt_no",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "1"
+      },
+      {
+        "column_name": "result_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Published'::character varying"
+      },
+      {
+        "column_name": "remarks",
+        "data_type": "text",
+        "udt_name": "text",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "entered_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "mark_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "enrollment_id",
+        "foreign_table_name": "enrollment",
+        "foreign_column_name": "enrollment_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "CASCADE",
+        "constraint_name": "fk_marks_enrollment"
+      },
+      {
+        "column_name": "subject_id",
+        "foreign_table_name": "subject",
+        "foreign_column_name": "subject_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_marks_subject"
+      },
+      {
+        "column_name": "exam_id",
+        "foreign_table_name": "exam",
+        "foreign_column_name": "exam_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_marks_exam"
+      },
+      {
+        "column_name": "faculty_id",
+        "foreign_table_name": "faculty",
+        "foreign_column_name": "faculty_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "SET NULL",
+        "constraint_name": "fk_marks_faculty"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "uq_marks_attempt",
+        "column_name": "enrollment_id"
+      },
+      {
+        "constraint_name": "uq_marks_attempt",
+        "column_name": "subject_id"
+      },
+      {
+        "constraint_name": "uq_marks_attempt",
+        "column_name": "exam_id"
+      },
+      {
+        "constraint_name": "uq_marks_attempt",
+        "column_name": "attempt_no"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_internal_marks",
+        "check_clause": "((internal_marks IS NULL) OR (internal_marks >= (0)::numeric))"
+      },
+      {
+        "constraint_name": "chk_external_marks",
+        "check_clause": "((external_marks IS NULL) OR (external_marks >= (0)::numeric))"
+      },
+      {
+        "constraint_name": "chk_total_marks",
+        "check_clause": "((total_marks IS NULL) OR (total_marks >= (0)::numeric))"
+      },
+      {
+        "constraint_name": "chk_attempt",
+        "check_clause": "(attempt_no >= 1)"
+      },
+      {
+        "constraint_name": "marks_mark_id_not_null",
+        "check_clause": "mark_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "marks_enrollment_id_not_null",
+        "check_clause": "enrollment_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "marks_subject_id_not_null",
+        "check_clause": "subject_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "marks_exam_id_not_null",
+        "check_clause": "exam_id IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "mark_id": 145,
+        "enrollment_id": 1,
+        "subject_id": 1,
+        "exam_id": 3,
+        "faculty_id": 1,
+        "internal_marks": "36.00",
+        "external_marks": "52.00",
+        "total_marks": "88.00",
+        "exam_type": "End Semester",
+        "exam_date": "2026-12-07T18:30:00.000Z",
+        "attempt_no": 1,
+        "result_status": "Published",
+        "remarks": null,
+        "entered_at": "2026-09-13T08:41:22.885Z",
+        "updated_at": "2026-09-13T08:41:22.885Z"
+      },
+      {
+        "mark_id": 146,
+        "enrollment_id": 1,
+        "subject_id": 2,
+        "exam_id": 3,
+        "faculty_id": 1,
+        "internal_marks": "34.00",
+        "external_marks": "47.00",
+        "total_marks": "81.00",
+        "exam_type": "End Semester",
+        "exam_date": "2026-12-09T18:30:00.000Z",
+        "attempt_no": 1,
+        "result_status": "Published",
+        "remarks": null,
+        "entered_at": "2026-09-13T08:41:22.885Z",
+        "updated_at": "2026-09-13T08:41:22.885Z"
+      },
+      {
+        "mark_id": 147,
+        "enrollment_id": 1,
+        "subject_id": 3,
+        "exam_id": 3,
+        "faculty_id": 2,
+        "internal_marks": "35.00",
+        "external_marks": "46.00",
+        "total_marks": "81.00",
+        "exam_type": "End Semester",
+        "exam_date": "2026-12-11T18:30:00.000Z",
+        "attempt_no": 1,
+        "result_status": "Published",
+        "remarks": null,
+        "entered_at": "2026-09-13T08:41:22.885Z",
+        "updated_at": "2026-09-13T08:41:22.885Z"
+      },
+      {
+        "mark_id": 148,
+        "enrollment_id": 1,
+        "subject_id": 4,
+        "exam_id": 3,
+        "faculty_id": 2,
+        "internal_marks": "32.00",
+        "external_marks": "45.00",
+        "total_marks": "77.00",
+        "exam_type": "End Semester",
+        "exam_date": "2026-12-13T18:30:00.000Z",
+        "attempt_no": 1,
+        "result_status": "Published",
+        "remarks": null,
+        "entered_at": "2026-09-13T08:41:22.885Z",
+        "updated_at": "2026-09-13T08:41:22.885Z"
+      },
+      {
+        "mark_id": 149,
+        "enrollment_id": 1,
+        "subject_id": 5,
+        "exam_id": 3,
+        "faculty_id": 3,
+        "internal_marks": "34.00",
+        "external_marks": "44.00",
+        "total_marks": "78.00",
+        "exam_type": "End Semester",
+        "exam_date": "2026-12-15T18:30:00.000Z",
+        "attempt_no": 1,
+        "result_status": "Published",
+        "remarks": null,
+        "entered_at": "2026-09-13T08:41:22.885Z",
+        "updated_at": "2026-09-13T08:41:22.885Z"
+      }
+    ]
+  },
+  "result": {
+    "tableName": "result",
+    "rowCount": 24,
+    "columns": [
+      {
+        "column_name": "result_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('result_result_id_seq'::regclass)"
+      },
+      {
+        "column_name": "student_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "semester_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "total_credits",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "earned_credits",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "total_marks",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 7,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "percentage",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 5,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "sgpa",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 4,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "cgpa",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 4,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "backlogs",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "0"
+      },
+      {
+        "column_name": "result_classification",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "result_status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Draft'::character varying"
+      },
+      {
+        "column_name": "published_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "published_by",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "remarks",
+        "data_type": "text",
+        "udt_name": "text",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "result_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "student_id",
+        "foreign_table_name": "student",
+        "foreign_column_name": "student_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "CASCADE",
+        "constraint_name": "fk_result_student"
+      },
+      {
+        "column_name": "semester_id",
+        "foreign_table_name": "semester",
+        "foreign_column_name": "semester_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_result_semester"
+      },
+      {
+        "column_name": "published_by",
+        "foreign_table_name": "users",
+        "foreign_column_name": "user_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "SET NULL",
+        "constraint_name": "fk_result_publisher"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "uq_student_result",
+        "column_name": "student_id"
+      },
+      {
+        "constraint_name": "uq_student_result",
+        "column_name": "semester_id"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_result_percentage",
+        "check_clause": "((percentage IS NULL) OR ((percentage >= (0)::numeric) AND (percentage <= (100)::numeric)))"
+      },
+      {
+        "constraint_name": "chk_result_backlogs",
+        "check_clause": "(backlogs >= 0)"
+      },
+      {
+        "constraint_name": "result_result_id_not_null",
+        "check_clause": "result_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "result_student_id_not_null",
+        "check_clause": "student_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "result_semester_id_not_null",
+        "check_clause": "semester_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "chk_result_sgpa",
+        "check_clause": "((sgpa IS NULL) OR ((sgpa >= (0)::numeric) AND (sgpa <= (10)::numeric)))"
+      },
+      {
+        "constraint_name": "chk_result_cgpa",
+        "check_clause": "((cgpa IS NULL) OR ((cgpa >= (0)::numeric) AND (cgpa <= (10)::numeric)))"
+      }
+    ],
+    "sampleRows": [
+      {
+        "result_id": 1,
+        "student_id": 1,
+        "semester_id": 1,
+        "total_credits": 24,
+        "earned_credits": 24,
+        "total_marks": "471.00",
+        "percentage": "78.50",
+        "sgpa": "8.83",
+        "cgpa": "8.83",
+        "backlogs": 0,
+        "result_classification": "Distinction",
+        "result_status": "Published",
+        "published_date": "2026-12-24T18:30:00.000Z",
+        "published_by": 1,
+        "remarks": null,
+        "created_at": "2026-09-13T09:29:36.640Z",
+        "updated_at": "2026-09-13T09:29:36.640Z"
+      },
+      {
+        "result_id": 2,
+        "student_id": 2,
+        "semester_id": 1,
+        "total_credits": 24,
+        "earned_credits": 24,
+        "total_marks": "477.00",
+        "percentage": "79.50",
+        "sgpa": "9.00",
+        "cgpa": "9.00",
+        "backlogs": 0,
+        "result_classification": "Distinction",
+        "result_status": "Published",
+        "published_date": "2026-12-24T18:30:00.000Z",
+        "published_by": 1,
+        "remarks": null,
+        "created_at": "2026-09-13T09:29:36.640Z",
+        "updated_at": "2026-09-13T09:29:36.640Z"
+      },
+      {
+        "result_id": 3,
+        "student_id": 3,
+        "semester_id": 1,
+        "total_credits": 24,
+        "earned_credits": 24,
+        "total_marks": "424.00",
+        "percentage": "70.67",
+        "sgpa": "7.83",
+        "cgpa": "7.83",
+        "backlogs": 0,
+        "result_classification": "First Class",
+        "result_status": "Published",
+        "published_date": "2026-12-24T18:30:00.000Z",
+        "published_by": 1,
+        "remarks": null,
+        "created_at": "2026-09-13T09:29:36.640Z",
+        "updated_at": "2026-09-13T09:29:36.640Z"
+      },
+      {
+        "result_id": 4,
+        "student_id": 4,
+        "semester_id": 1,
+        "total_credits": 24,
+        "earned_credits": 24,
+        "total_marks": "421.00",
+        "percentage": "70.17",
+        "sgpa": "7.67",
+        "cgpa": "7.67",
+        "backlogs": 0,
+        "result_classification": "First Class",
+        "result_status": "Published",
+        "published_date": "2026-12-24T18:30:00.000Z",
+        "published_by": 1,
+        "remarks": null,
+        "created_at": "2026-09-13T09:29:36.640Z",
+        "updated_at": "2026-09-13T09:29:36.640Z"
+      },
+      {
+        "result_id": 5,
+        "student_id": 5,
+        "semester_id": 1,
+        "total_credits": 24,
+        "earned_credits": 24,
+        "total_marks": "378.00",
+        "percentage": "63.00",
+        "sgpa": "7.00",
+        "cgpa": "7.00",
+        "backlogs": 0,
+        "result_classification": "First Class",
+        "result_status": "Published",
+        "published_date": "2026-12-24T18:30:00.000Z",
+        "published_by": 1,
+        "remarks": null,
+        "created_at": "2026-09-13T09:29:36.640Z",
+        "updated_at": "2026-09-13T09:29:36.640Z"
+      }
+    ]
+  },
+  "semester": {
+    "tableName": "semester",
+    "rowCount": 4,
+    "columns": [
+      {
+        "column_name": "semester_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('semester_semester_id_seq'::regclass)"
+      },
+      {
+        "column_name": "course_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "semester_no",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "academic_year",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 9,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "term_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "start_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "end_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "registration_start",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "registration_end",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_start_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "exam_end_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "result_publish_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "semester_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "course_id",
+        "foreign_table_name": "course",
+        "foreign_column_name": "course_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_semester_course"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "uq_course_semester",
+        "column_name": "course_id"
+      },
+      {
+        "constraint_name": "uq_course_semester",
+        "column_name": "semester_no"
+      },
+      {
+        "constraint_name": "uq_course_semester",
+        "column_name": "academic_year"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_semester_dates",
+        "check_clause": "((end_date IS NULL) OR (start_date IS NULL) OR (end_date >= start_date))"
+      },
+      {
+        "constraint_name": "semester_semester_id_not_null",
+        "check_clause": "semester_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "semester_course_id_not_null",
+        "check_clause": "course_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "semester_semester_no_not_null",
+        "check_clause": "semester_no IS NOT NULL"
+      },
+      {
+        "constraint_name": "semester_academic_year_not_null",
+        "check_clause": "academic_year IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "semester_id": 1,
+        "course_id": 1,
+        "semester_no": 5,
+        "academic_year": "2026-27",
+        "term_name": "Odd Semester",
+        "start_date": "2026-06-30T18:30:00.000Z",
+        "end_date": "2026-11-29T18:30:00.000Z",
+        "registration_start": "2026-06-14T18:30:00.000Z",
+        "registration_end": "2026-06-29T18:30:00.000Z",
+        "exam_start_date": "2026-12-04T18:30:00.000Z",
+        "exam_end_date": "2026-12-19T18:30:00.000Z",
+        "result_publish_date": "2027-01-09T18:30:00.000Z",
+        "status": "Active",
+        "created_at": "2026-09-13T08:15:35.755Z"
+      },
+      {
+        "semester_id": 2,
+        "course_id": 2,
+        "semester_no": 5,
+        "academic_year": "2026-27",
+        "term_name": "Odd Semester",
+        "start_date": "2026-06-30T18:30:00.000Z",
+        "end_date": "2026-11-29T18:30:00.000Z",
+        "registration_start": "2026-06-14T18:30:00.000Z",
+        "registration_end": "2026-06-29T18:30:00.000Z",
+        "exam_start_date": "2026-12-04T18:30:00.000Z",
+        "exam_end_date": "2026-12-19T18:30:00.000Z",
+        "result_publish_date": "2027-01-09T18:30:00.000Z",
+        "status": "Active",
+        "created_at": "2026-09-13T08:15:35.755Z"
+      },
+      {
+        "semester_id": 3,
+        "course_id": 3,
+        "semester_no": 5,
+        "academic_year": "2026-27",
+        "term_name": "Odd Semester",
+        "start_date": "2026-06-30T18:30:00.000Z",
+        "end_date": "2026-11-29T18:30:00.000Z",
+        "registration_start": "2026-06-14T18:30:00.000Z",
+        "registration_end": "2026-06-29T18:30:00.000Z",
+        "exam_start_date": "2026-12-04T18:30:00.000Z",
+        "exam_end_date": "2026-12-19T18:30:00.000Z",
+        "result_publish_date": "2027-01-09T18:30:00.000Z",
+        "status": "Active",
+        "created_at": "2026-09-13T08:15:35.755Z"
+      },
+      {
+        "semester_id": 4,
+        "course_id": 4,
+        "semester_no": 5,
+        "academic_year": "2026-27",
+        "term_name": "Odd Semester",
+        "start_date": "2026-06-30T18:30:00.000Z",
+        "end_date": "2026-11-29T18:30:00.000Z",
+        "registration_start": "2026-06-14T18:30:00.000Z",
+        "registration_end": "2026-06-29T18:30:00.000Z",
+        "exam_start_date": "2026-12-04T18:30:00.000Z",
+        "exam_end_date": "2026-12-19T18:30:00.000Z",
+        "result_publish_date": "2027-01-09T18:30:00.000Z",
+        "status": "Active",
+        "created_at": "2026-09-13T08:15:35.755Z"
+      }
+    ]
+  },
+  "student": {
+    "tableName": "student",
+    "rowCount": 24,
+    "columns": [
+      {
+        "column_name": "student_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('student_student_id_seq'::regclass)"
+      },
+      {
+        "column_name": "roll_no",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "reg_no",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "dept_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "course_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "first_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "middle_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "last_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "date_of_birth",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "gender",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 15,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "blood_group",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 5,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "alternate_email",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "phone_no",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 15,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "alternate_phone",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 15,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "address",
+        "data_type": "text",
+        "udt_name": "text",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "city",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "state",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "pincode",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 10,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "admission_year",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "admission_date",
+        "data_type": "date",
+        "udt_name": "date",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "current_semester",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "section",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 10,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "admission_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "category",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "nationality",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Indian'::character varying"
+      },
+      {
+        "column_name": "guardian_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "guardian_relation",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "guardian_phone",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 15,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "guardian_email",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "student_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "dept_id",
+        "foreign_table_name": "department",
+        "foreign_column_name": "dept_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_student_department"
+      },
+      {
+        "column_name": "course_id",
+        "foreign_table_name": "course",
+        "foreign_column_name": "course_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_student_course"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "student_roll_no_key",
+        "column_name": "roll_no"
+      },
+      {
+        "constraint_name": "student_reg_no_key",
+        "column_name": "reg_no"
+      },
+      {
+        "constraint_name": "student_email_key",
+        "column_name": "email"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "student_student_id_not_null",
+        "check_clause": "student_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "student_roll_no_not_null",
+        "check_clause": "roll_no IS NOT NULL"
+      },
+      {
+        "constraint_name": "student_reg_no_not_null",
+        "check_clause": "reg_no IS NOT NULL"
+      },
+      {
+        "constraint_name": "student_dept_id_not_null",
+        "check_clause": "dept_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "student_course_id_not_null",
+        "check_clause": "course_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "student_first_name_not_null",
+        "check_clause": "first_name IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "student_id": 1,
+        "roll_no": "23CSE001",
+        "reg_no": "2023CSE001",
+        "dept_id": 1,
+        "course_id": 1,
+        "first_name": "Aarav",
+        "middle_name": null,
+        "last_name": "Mehta",
+        "date_of_birth": "2005-03-13T18:30:00.000Z",
+        "gender": "Male",
+        "blood_group": "O+",
+        "email": "aarav.mehta@eduinsight.edu",
+        "alternate_email": "aarav.personal@gmail.com",
+        "phone_no": "9876510001",
+        "alternate_phone": "9123410001",
+        "address": "12 Lake View Road",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "pincode": "500081",
+        "admission_year": 2023,
+        "admission_date": "2023-07-31T18:30:00.000Z",
+        "current_semester": 5,
+        "section": "A",
+        "admission_type": "Entrance",
+        "category": "General",
+        "nationality": "Indian",
+        "guardian_name": "Rakesh Mehta",
+        "guardian_relation": "Father",
+        "guardian_phone": "9876511001",
+        "guardian_email": "rakesh.mehta@gmail.com",
+        "status": "Active",
+        "created_at": "2026-09-13T08:03:54.196Z",
+        "updated_at": "2026-09-13T08:03:54.196Z"
+      },
+      {
+        "student_id": 2,
+        "roll_no": "23CSE002",
+        "reg_no": "2023CSE002",
+        "dept_id": 1,
+        "course_id": 1,
+        "first_name": "Ananya",
+        "middle_name": null,
+        "last_name": "Sharma",
+        "date_of_birth": "2005-07-21T18:30:00.000Z",
+        "gender": "Female",
+        "blood_group": "A+",
+        "email": "ananya.sharma@eduinsight.edu",
+        "alternate_email": "ananya.personal@gmail.com",
+        "phone_no": "9876510002",
+        "alternate_phone": "9123410002",
+        "address": "8 Green Park Lane",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "pincode": "500032",
+        "admission_year": 2023,
+        "admission_date": "2023-07-31T18:30:00.000Z",
+        "current_semester": 5,
+        "section": "A",
+        "admission_type": "Entrance",
+        "category": "General",
+        "nationality": "Indian",
+        "guardian_name": "Rajesh Sharma",
+        "guardian_relation": "Father",
+        "guardian_phone": "9876511002",
+        "guardian_email": "rajesh.sharma@gmail.com",
+        "status": "Active",
+        "created_at": "2026-09-13T08:03:54.196Z",
+        "updated_at": "2026-09-13T08:03:54.196Z"
+      },
+      {
+        "student_id": 3,
+        "roll_no": "23CSE003",
+        "reg_no": "2023CSE003",
+        "dept_id": 1,
+        "course_id": 1,
+        "first_name": "Vihaan",
+        "middle_name": null,
+        "last_name": "Reddy",
+        "date_of_birth": "2005-11-09T18:30:00.000Z",
+        "gender": "Male",
+        "blood_group": "B+",
+        "email": "vihaan.reddy@eduinsight.edu",
+        "alternate_email": "vihaan.personal@gmail.com",
+        "phone_no": "9876510003",
+        "alternate_phone": "9123410003",
+        "address": "24 Jubilee Hills",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "pincode": "500033",
+        "admission_year": 2023,
+        "admission_date": "2023-07-31T18:30:00.000Z",
+        "current_semester": 5,
+        "section": "A",
+        "admission_type": "Entrance",
+        "category": "General",
+        "nationality": "Indian",
+        "guardian_name": "Suresh Reddy",
+        "guardian_relation": "Father",
+        "guardian_phone": "9876511003",
+        "guardian_email": "suresh.reddy@gmail.com",
+        "status": "Active",
+        "created_at": "2026-09-13T08:03:54.196Z",
+        "updated_at": "2026-09-13T08:03:54.196Z"
+      },
+      {
+        "student_id": 4,
+        "roll_no": "23CSE004",
+        "reg_no": "2023CSE004",
+        "dept_id": 1,
+        "course_id": 1,
+        "first_name": "Ishita",
+        "middle_name": null,
+        "last_name": "Nair",
+        "date_of_birth": "2005-01-18T18:30:00.000Z",
+        "gender": "Female",
+        "blood_group": "O+",
+        "email": "ishita.nair@eduinsight.edu",
+        "alternate_email": "ishita.personal@gmail.com",
+        "phone_no": "9876510004",
+        "alternate_phone": "9123410004",
+        "address": "16 Banjara Hills",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "pincode": "500034",
+        "admission_year": 2023,
+        "admission_date": "2023-07-31T18:30:00.000Z",
+        "current_semester": 5,
+        "section": "B",
+        "admission_type": "Entrance",
+        "category": "General",
+        "nationality": "Indian",
+        "guardian_name": "Arun Nair",
+        "guardian_relation": "Father",
+        "guardian_phone": "9876511004",
+        "guardian_email": "arun.nair@gmail.com",
+        "status": "Active",
+        "created_at": "2026-09-13T08:03:54.196Z",
+        "updated_at": "2026-09-13T08:03:54.196Z"
+      },
+      {
+        "student_id": 5,
+        "roll_no": "23CSE005",
+        "reg_no": "2023CSE005",
+        "dept_id": 1,
+        "course_id": 1,
+        "first_name": "Kabir",
+        "middle_name": null,
+        "last_name": "Kapoor",
+        "date_of_birth": "2005-05-27T18:30:00.000Z",
+        "gender": "Male",
+        "blood_group": "A+",
+        "email": "kabir.kapoor@eduinsight.edu",
+        "alternate_email": "kabir.personal@gmail.com",
+        "phone_no": "9876510005",
+        "alternate_phone": "9123410005",
+        "address": "19 Madhapur",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "pincode": "500081",
+        "admission_year": 2023,
+        "admission_date": "2023-07-31T18:30:00.000Z",
+        "current_semester": 5,
+        "section": "B",
+        "admission_type": "Management",
+        "category": "General",
+        "nationality": "Indian",
+        "guardian_name": "Vivek Kapoor",
+        "guardian_relation": "Father",
+        "guardian_phone": "9876511005",
+        "guardian_email": "vivek.kapoor@gmail.com",
+        "status": "Active",
+        "created_at": "2026-09-13T08:03:54.196Z",
+        "updated_at": "2026-09-13T08:03:54.196Z"
+      }
+    ]
+  },
+  "subject": {
+    "tableName": "subject",
+    "rowCount": 24,
+    "columns": [
+      {
+        "column_name": "subject_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('subject_subject_id_seq'::regclass)"
+      },
+      {
+        "column_name": "course_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "subject_code",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "subject_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "short_name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "credits",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "lecture_hours",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "0"
+      },
+      {
+        "column_name": "tutorial_hours",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "0"
+      },
+      {
+        "column_name": "practical_hours",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "0"
+      },
+      {
+        "column_name": "subject_type",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "semester_no",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "max_marks",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "100"
+      },
+      {
+        "column_name": "pass_marks",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "40"
+      },
+      {
+        "column_name": "internal_weightage",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 5,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": "40.00"
+      },
+      {
+        "column_name": "external_weightage",
+        "data_type": "numeric",
+        "udt_name": "numeric",
+        "character_maximum_length": null,
+        "numeric_precision": 5,
+        "numeric_scale": 2,
+        "is_nullable": "YES",
+        "column_default": "60.00"
+      },
+      {
+        "column_name": "is_elective",
+        "data_type": "boolean",
+        "udt_name": "bool",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "false"
+      },
+      {
+        "column_name": "is_lab",
+        "data_type": "boolean",
+        "udt_name": "bool",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "false"
+      },
+      {
+        "column_name": "status",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 20,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "'Active'::character varying"
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "subject_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "course_id",
+        "foreign_table_name": "course",
+        "foreign_column_name": "course_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "RESTRICT",
+        "constraint_name": "fk_subject_course"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "subject_subject_code_key",
+        "column_name": "subject_code"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_subject_marks",
+        "check_clause": "((max_marks > 0) AND (pass_marks >= 0) AND (pass_marks <= max_marks))"
+      },
+      {
+        "constraint_name": "chk_subject_weightage",
+        "check_clause": "((internal_weightage + external_weightage) = (100)::numeric)"
+      },
+      {
+        "constraint_name": "subject_subject_id_not_null",
+        "check_clause": "subject_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "subject_course_id_not_null",
+        "check_clause": "course_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "subject_subject_code_not_null",
+        "check_clause": "subject_code IS NOT NULL"
+      },
+      {
+        "constraint_name": "subject_subject_name_not_null",
+        "check_clause": "subject_name IS NOT NULL"
+      },
+      {
+        "constraint_name": "subject_credits_not_null",
+        "check_clause": "credits IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "subject_id": 1,
+        "course_id": 1,
+        "subject_code": "CS501",
+        "subject_name": "Database Management Systems",
+        "short_name": "DBMS",
+        "credits": 4,
+        "lecture_hours": 3,
+        "tutorial_hours": 1,
+        "practical_hours": 2,
+        "subject_type": "Core",
+        "semester_no": 5,
+        "max_marks": 100,
+        "pass_marks": 40,
+        "internal_weightage": "40.00",
+        "external_weightage": "60.00",
+        "is_elective": false,
+        "is_lab": true,
+        "status": "Active",
+        "created_at": "2026-09-13T08:17:15.123Z",
+        "updated_at": "2026-09-13T08:17:15.123Z"
+      },
+      {
+        "subject_id": 2,
+        "course_id": 1,
+        "subject_code": "CS502",
+        "subject_name": "Computer Networks",
+        "short_name": "CN",
+        "credits": 4,
+        "lecture_hours": 3,
+        "tutorial_hours": 1,
+        "practical_hours": 2,
+        "subject_type": "Core",
+        "semester_no": 5,
+        "max_marks": 100,
+        "pass_marks": 40,
+        "internal_weightage": "40.00",
+        "external_weightage": "60.00",
+        "is_elective": false,
+        "is_lab": true,
+        "status": "Active",
+        "created_at": "2026-09-13T08:17:15.123Z",
+        "updated_at": "2026-09-13T08:17:15.123Z"
+      },
+      {
+        "subject_id": 3,
+        "course_id": 1,
+        "subject_code": "CS503",
+        "subject_name": "Operating Systems",
+        "short_name": "OS",
+        "credits": 4,
+        "lecture_hours": 3,
+        "tutorial_hours": 1,
+        "practical_hours": 2,
+        "subject_type": "Core",
+        "semester_no": 5,
+        "max_marks": 100,
+        "pass_marks": 40,
+        "internal_weightage": "40.00",
+        "external_weightage": "60.00",
+        "is_elective": false,
+        "is_lab": true,
+        "status": "Active",
+        "created_at": "2026-09-13T08:17:15.123Z",
+        "updated_at": "2026-09-13T08:17:15.123Z"
+      },
+      {
+        "subject_id": 4,
+        "course_id": 1,
+        "subject_code": "CS504",
+        "subject_name": "Web Technologies",
+        "short_name": "WT",
+        "credits": 3,
+        "lecture_hours": 2,
+        "tutorial_hours": 1,
+        "practical_hours": 2,
+        "subject_type": "Core",
+        "semester_no": 5,
+        "max_marks": 100,
+        "pass_marks": 40,
+        "internal_weightage": "40.00",
+        "external_weightage": "60.00",
+        "is_elective": false,
+        "is_lab": true,
+        "status": "Active",
+        "created_at": "2026-09-13T08:17:15.123Z",
+        "updated_at": "2026-09-13T08:17:15.123Z"
+      },
+      {
+        "subject_id": 5,
+        "course_id": 1,
+        "subject_code": "CS505",
+        "subject_name": "Software Engineering",
+        "short_name": "SE",
+        "credits": 3,
+        "lecture_hours": 3,
+        "tutorial_hours": 0,
+        "practical_hours": 0,
+        "subject_type": "Core",
+        "semester_no": 5,
+        "max_marks": 100,
+        "pass_marks": 40,
+        "internal_weightage": "40.00",
+        "external_weightage": "60.00",
+        "is_elective": false,
+        "is_lab": false,
+        "status": "Active",
+        "created_at": "2026-09-13T08:17:15.123Z",
+        "updated_at": "2026-09-13T08:17:15.123Z"
+      }
+    ]
+  },
+  "users": {
+    "tableName": "users",
+    "rowCount": 12,
+    "columns": [
+      {
+        "column_name": "user_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "NO",
+        "column_default": "nextval('users_user_id_seq'::regclass)"
+      },
+      {
+        "column_name": "faculty_id",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "username",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 50,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "password_hash",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "name",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "email",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 100,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "phone_no",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 15,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "role",
+        "data_type": "character varying",
+        "udt_name": "varchar",
+        "character_maximum_length": 30,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "is_active",
+        "data_type": "boolean",
+        "udt_name": "bool",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "true"
+      },
+      {
+        "column_name": "failed_login_attempts",
+        "data_type": "integer",
+        "udt_name": "int4",
+        "character_maximum_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": "YES",
+        "column_default": "0"
+      },
+      {
+        "column_name": "last_login",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "password_changed_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "created_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "updated_at",
+        "data_type": "timestamp without time zone",
+        "udt_name": "timestamp",
+        "character_maximum_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      }
+    ],
+    "primaryKeys": [
+      "user_id"
+    ],
+    "foreignKeys": [
+      {
+        "column_name": "faculty_id",
+        "foreign_table_name": "faculty",
+        "foreign_column_name": "faculty_id",
+        "update_rule": "CASCADE",
+        "delete_rule": "SET NULL",
+        "constraint_name": "fk_users_faculty"
+      }
+    ],
+    "uniqueConstraints": [
+      {
+        "constraint_name": "users_username_key",
+        "column_name": "username"
+      },
+      {
+        "constraint_name": "users_email_key",
+        "column_name": "email"
+      }
+    ],
+    "checkConstraints": [
+      {
+        "constraint_name": "chk_user_role",
+        "check_clause": "((role)::text = ANY ((ARRAY['ADMIN'::character varying, 'FACULTY'::character varying, 'HOD'::character varying, 'EXAM_CELL'::character varying])::text[]))"
+      },
+      {
+        "constraint_name": "users_user_id_not_null",
+        "check_clause": "user_id IS NOT NULL"
+      },
+      {
+        "constraint_name": "users_username_not_null",
+        "check_clause": "username IS NOT NULL"
+      },
+      {
+        "constraint_name": "users_password_hash_not_null",
+        "check_clause": "password_hash IS NOT NULL"
+      },
+      {
+        "constraint_name": "users_name_not_null",
+        "check_clause": "name IS NOT NULL"
+      },
+      {
+        "constraint_name": "users_role_not_null",
+        "check_clause": "role IS NOT NULL"
+      }
+    ],
+    "sampleRows": [
+      {
+        "user_id": 1,
+        "faculty_id": 1,
+        "username": "faculty01",
+        "password_hash": "demo_hash_01",
+        "name": "Faculty 01",
+        "email": null,
+        "phone_no": null,
+        "role": "FACULTY",
+        "is_active": true,
+        "failed_login_attempts": 0,
+        "last_login": null,
+        "password_changed_at": null,
+        "created_at": "2026-09-13T09:01:15.136Z",
+        "updated_at": "2026-09-13T09:01:15.136Z"
+      },
+      {
+        "user_id": 2,
+        "faculty_id": 2,
+        "username": "faculty02",
+        "password_hash": "demo_hash_02",
+        "name": "Faculty 02",
+        "email": null,
+        "phone_no": null,
+        "role": "FACULTY",
+        "is_active": true,
+        "failed_login_attempts": 0,
+        "last_login": null,
+        "password_changed_at": null,
+        "created_at": "2026-09-13T09:01:15.136Z",
+        "updated_at": "2026-09-13T09:01:15.136Z"
+      },
+      {
+        "user_id": 3,
+        "faculty_id": 3,
+        "username": "faculty03",
+        "password_hash": "demo_hash_03",
+        "name": "Faculty 03",
+        "email": null,
+        "phone_no": null,
+        "role": "FACULTY",
+        "is_active": true,
+        "failed_login_attempts": 0,
+        "last_login": null,
+        "password_changed_at": null,
+        "created_at": "2026-09-13T09:01:15.136Z",
+        "updated_at": "2026-09-13T09:01:15.136Z"
+      },
+      {
+        "user_id": 4,
+        "faculty_id": 4,
+        "username": "faculty04",
+        "password_hash": "demo_hash_04",
+        "name": "Faculty 04",
+        "email": null,
+        "phone_no": null,
+        "role": "FACULTY",
+        "is_active": true,
+        "failed_login_attempts": 0,
+        "last_login": null,
+        "password_changed_at": null,
+        "created_at": "2026-09-13T09:01:15.136Z",
+        "updated_at": "2026-09-13T09:01:15.136Z"
+      },
+      {
+        "user_id": 5,
+        "faculty_id": 5,
+        "username": "faculty05",
+        "password_hash": "demo_hash_05",
+        "name": "Faculty 05",
+        "email": null,
+        "phone_no": null,
+        "role": "FACULTY",
+        "is_active": true,
+        "failed_login_attempts": 0,
+        "last_login": null,
+        "password_changed_at": null,
+        "created_at": "2026-09-13T09:01:15.136Z",
+        "updated_at": "2026-09-13T09:01:15.136Z"
+      }
+    ]
+  }
+}
