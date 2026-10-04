@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: #080e1a;
+    --color-bg-surface: #0f1824;
+    --color-bg-elevated: #162032;
+    --color-border: rgba(255, 255, 255, 0.06);
+    --color-border-strong: rgba(255, 255, 255, 0.1);
+    --sidebar-width: 256px;
+    --sidebar-collapsed: 68px;
+    --header-height: 60px;
+    --radius-card: 12px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: #e2e8f0;
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.35);
+    color: #fff;
+  }
+}
+
+/* ============================================================
+   SCROLLBARS
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.25);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* ============================================================
+   SKELETON SHIMMER ANIMATION
+   ============================================================ */
+@keyframes shimmer {
+  0% { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.08) 40px,
+    rgba(255, 255, 255, 0.04) 80px
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.6s infinite ease-in-out;
+  border-radius: 6px;
+}
+
+/* ============================================================
+   PAGE TRANSITION WRAPPER
+   ============================================================ */
+.page-wrapper {
+  min-height: calc(100vh - var(--header-height));
+}
+
+/* ============================================================
+   CUSTOM FOCUS RING
+   ============================================================ */
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.7);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   TOOLTIP (native)
+   ============================================================ */
+[data-tooltip] {
+  position: relative;
+}
+
+/* ============================================================
+   GLASS SURFACE
+   ============================================================ */
+.glass {
+  background: rgba(15, 24, 36, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   PROGRESS BAR ANIMATION
+   ============================================================ */
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--progress-width, 0%); }
+}
+
+.progress-bar-animated {
+  animation: progressFill 1s ease-out forwards;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .skeleton {
+    animation: none;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* ============================================================
+   TOAST CONTAINER
+   ============================================================ */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  align-items: flex-end;
+  max-width: calc(100vw - 48px);
+}
+
+.toast-container > * {
+  pointer-events: auto;
+}
+
+/* ============================================================
+   SIDEBAR TRANSITION
+   ============================================================ */
+.sidebar-transition {
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   NAV LINK ACTIVE INDICATOR
+   ============================================================ */
+.nav-link-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: #3b82f6;
+  border-radius: 0 2px 2px 0;
+}
