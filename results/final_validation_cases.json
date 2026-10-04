@@ -1,0 +1,914 @@
+[
+  {
+    "provenance": {
+      "student_id": "STU0016",
+      "semester_no": 2,
+      "checkpoint": "W12",
+      "model_architecture": "XGBoost Classifier (Temporal Checkpoint Champion)",
+      "explainability_engine": "SHAP (TreeExplainer)",
+      "uncertainty_engine": "Split Conformal Prediction (Inductive Nonconformity)",
+      "data_source": "SYNTHETIC_ML_VALIDATED_DATASET",
+      "is_operational_db": false,
+      "analysis_timestamp": "2026-10-04T09:01:00.177142+00:00"
+    },
+    "academic_context": {
+      "department": "DS",
+      "course": "B.TECH",
+      "cohort_entry_year": "2020-21",
+      "current_attendance_pct": 76.37,
+      "current_internal_marks_avg": 46.09,
+      "low_scoring_subjects_count": 3,
+      "low_attendance_subjects_count": 2,
+      "prior_cumulative_cgpa": 6.4,
+      "historical_backlogs": 0
+    },
+    "prediction": {
+      "risk_probability": 0.9991,
+      "risk_percentage": 99.91,
+      "risk_class": "HIGH",
+      "point_prediction": "RISK",
+      "model_description": "Model-predicted early academic risk at Checkpoint W12."
+    },
+    "uncertainty": {
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "alpha": 0.1,
+      "coverage_target": 0.9,
+      "quantile_threshold": 0.0979
+    },
+    "explainability": {
+      "risk_factors": [
+        {
+          "feature": "internal_marks_avg_w12",
+          "actual_value": 46.09,
+          "shap_value": 4.3037,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 46.09% contributed positively (+4.304) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 3,
+          "shap_value": 2.8211,
+          "direction": "risk_increasing",
+          "interpretation": "Having 3 subject(s) below the 50% internal mark benchmark contributed positively (+2.821) toward higher predicted academic risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 44.63,
+          "shap_value": 1.267,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 44.63% contributed positively (+1.267) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "marks_change_w4_w8",
+          "actual_value": -4.12,
+          "shap_value": 0.5327,
+          "direction": "risk_increasing",
+          "interpretation": "A downward trajectory delta (-4.12) contributed positively (+0.533) to the model's risk estimation."
+        }
+      ],
+      "protective_factors": [
+        {
+          "feature": "semester_no",
+          "actual_value": 2,
+          "shap_value": -0.1702,
+          "direction": "risk_reducing",
+          "interpretation": "Feature 'semester_no' (value: 2) contributed negatively (-0.170) toward lower predicted risk."
+        },
+        {
+          "feature": "marks_change_w8_w12",
+          "actual_value": 1.46,
+          "shap_value": -0.1664,
+          "direction": "risk_reducing",
+          "interpretation": "A positive trajectory progression (1.46) served as a protective signal (-0.166) lowering predicted risk."
+        },
+        {
+          "feature": "attendance_pct_w8",
+          "actual_value": 77.73,
+          "shap_value": -0.1361,
+          "direction": "risk_reducing",
+          "interpretation": "Consistently strong attendance of 77.73% acted as a protective indicator (-0.136) lowering predicted risk."
+        },
+        {
+          "feature": "entrance_rank_percentile",
+          "actual_value": 75.47,
+          "shap_value": -0.1202,
+          "direction": "risk_reducing",
+          "interpretation": "Feature 'entrance_rank_percentile' (value: 75.47) contributed negatively (-0.120) toward lower predicted risk."
+        }
+      ],
+      "non_causal_disclaimer": "SHAP values describe statistical feature contributions toward the model prediction; they do not establish empirical causality."
+    },
+    "counterfactual": {
+      "student_id": "STU0016",
+      "semester_no": 2,
+      "checkpoint": "W12",
+      "feasibility_status": "FEASIBLE_THRESHOLD_CROSSED",
+      "scenario_name": "Combined Intervention (+10% Att, +10 Marks)",
+      "intervention_cost": 1.5,
+      "explanation": "Under the model, modifying attendance_pct_w12 from 76.37 to 86.37 (+10.0), internal_marks_avg_w12 from 46.09 to 56.09 (+10.0), low_scoring_subjects_w12 from 3 to 2 (-1.0) is associated with reducing predicted risk from 0.9991 to 0.4628 (a reduction of 0.5363), shifting the point prediction from RISK to SAFE and uncertainty from CONFIDENT_RISK to AMBIGUOUS.",
+      "current": {
+        "risk_probability": 0.9991,
+        "point_prediction": "RISK",
+        "uncertainty_status": "CONFIDENT_RISK",
+        "conformal_prediction_set": [
+          "RISK"
+        ],
+        "top_risk_factors": [
+          {
+            "feature": "internal_marks_avg_w12",
+            "actual_value": 46.09,
+            "shap_value": 4.3037,
+            "direction": "risk_increasing",
+            "interpretation": "An internal assessment average of 46.09% contributed positively (+4.304) to the model's elevated risk prediction."
+          },
+          {
+            "feature": "low_scoring_subjects_w12",
+            "actual_value": 3,
+            "shap_value": 2.8211,
+            "direction": "risk_increasing",
+            "interpretation": "Having 3 subject(s) below the 50% internal mark benchmark contributed positively (+2.821) toward higher predicted academic risk."
+          },
+          {
+            "feature": "internal_marks_avg_w8",
+            "actual_value": 44.63,
+            "shap_value": 1.267,
+            "direction": "risk_increasing",
+            "interpretation": "An internal assessment average of 44.63% contributed positively (+1.267) to the model's elevated risk prediction."
+          }
+        ]
+      },
+      "counterfactual": {
+        "modified_features": {
+          "attendance_pct_w12": 86.37,
+          "internal_marks_avg_w12": 56.09,
+          "low_scoring_subjects_w12": 2
+        },
+        "risk_probability": 0.4628,
+        "point_prediction": "SAFE",
+        "uncertainty_status": "AMBIGUOUS",
+        "conformal_prediction_set": [
+          "SAFE"
+        ],
+        "probability_reduction": 0.5363,
+        "top_risk_factors": [
+          {
+            "feature": "low_scoring_subjects_w12",
+            "actual_value": 2,
+            "shap_value": 2.2375,
+            "direction": "risk_increasing",
+            "interpretation": "Having 2 subject(s) below the 50% internal mark benchmark contributed positively (+2.237) toward higher predicted academic risk."
+          },
+          {
+            "feature": "internal_marks_avg_w8",
+            "actual_value": 44.63,
+            "shap_value": 0.9775,
+            "direction": "risk_increasing",
+            "interpretation": "An internal assessment average of 44.63% contributed positively (+0.978) to the model's elevated risk prediction."
+          },
+          {
+            "feature": "marks_change_w4_w8",
+            "actual_value": -4.12,
+            "shap_value": 0.5425,
+            "direction": "risk_increasing",
+            "interpretation": "A downward trajectory delta (-4.12) contributed positively (+0.543) to the model's risk estimation."
+          }
+        ]
+      },
+      "all_evaluated_scenarios_count": 16,
+      "feasible_scenarios_count": 14
+    },
+    "intervention_plan": {
+      "student_id": "STU0016",
+      "semester_no": 2,
+      "checkpoint": "W12",
+      "risk_probability": 0.9991,
+      "risk_class": "HIGH",
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "priority": "CRITICAL",
+      "recommendation_confidence": "HIGH",
+      "primary_intervention": {
+        "type": "SUBJECT_REMEDIATION",
+        "title": "Targeted Multi-Subject Academic Remediation",
+        "priority": "CRITICAL",
+        "confidence": "HIGH",
+        "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+        "trigger_evidence": [
+          "internal_marks_avg_w12 (value: 46.09, SHAP: +4.304)",
+          "low_scoring_subjects_w12 (value: 3, SHAP: +2.821)",
+          "internal_marks_avg_w8 (value: 44.63, SHAP: +1.267)"
+        ],
+        "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+        "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+        "time_horizon": "Short-term (Next 2-4 weeks)"
+      },
+      "secondary_intervention": {
+        "type": "FACULTY_MENTORING",
+        "title": "One-on-One Faculty Academic Mentoring",
+        "priority": "MEDIUM",
+        "reason": "Complementary academic support recommendation.",
+        "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+      },
+      "counterfactual_evidence": {
+        "scenario_name": "Combined Intervention (+10% Att, +10 Marks)",
+        "modified_features": {
+          "attendance_pct_w12": 86.37,
+          "internal_marks_avg_w12": 56.09,
+          "low_scoring_subjects_w12": 2
+        },
+        "predicted_risk_reduction": 0.5363,
+        "new_risk_probability": 0.4628,
+        "new_point_prediction": "SAFE",
+        "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+      },
+      "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+    },
+    "case_label": "Case 1: Confident High-Risk Student"
+  },
+  {
+    "provenance": {
+      "student_id": "STU0250",
+      "semester_no": 2,
+      "checkpoint": "W4",
+      "model_architecture": "XGBoost Classifier (Temporal Checkpoint Champion)",
+      "explainability_engine": "SHAP (TreeExplainer)",
+      "uncertainty_engine": "Split Conformal Prediction (Inductive Nonconformity)",
+      "data_source": "SYNTHETIC_ML_VALIDATED_DATASET",
+      "is_operational_db": false,
+      "analysis_timestamp": "2026-10-04T09:01:01.394068+00:00"
+    },
+    "academic_context": {
+      "department": "ECE",
+      "course": "B.TECH",
+      "cohort_entry_year": "2024-25",
+      "current_attendance_pct": 91.74,
+      "current_internal_marks_avg": 77.27,
+      "low_scoring_subjects_count": 0,
+      "low_attendance_subjects_count": 0,
+      "prior_cumulative_cgpa": 8.2,
+      "historical_backlogs": 0
+    },
+    "prediction": {
+      "risk_probability": 0.0015,
+      "risk_percentage": 0.15,
+      "risk_class": "LOW",
+      "point_prediction": "SAFE",
+      "model_description": "Model-predicted early academic risk at Checkpoint W4."
+    },
+    "uncertainty": {
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "alpha": 0.05,
+      "coverage_target": 0.95,
+      "quantile_threshold": 0.6803
+    },
+    "explainability": {
+      "risk_factors": [
+        {
+          "feature": "attendance_pct_w4",
+          "actual_value": 91.74,
+          "shap_value": 0.3245,
+          "direction": "risk_increasing",
+          "interpretation": "Attendance standing of 91.74% contributed positively (+0.324) toward the model's risk score."
+        },
+        {
+          "feature": "low_attendance_subjects_w4",
+          "actual_value": 0,
+          "shap_value": 0.0911,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'low_attendance_subjects_w4' (value: 0) contributed positively (+0.091) toward higher predicted risk."
+        },
+        {
+          "feature": "fee_payment_status_Partial",
+          "actual_value": "Paid",
+          "shap_value": 0.0125,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'fee_payment_status_Partial' (value: Paid) contributed positively (+0.012) toward higher predicted risk."
+        },
+        {
+          "feature": "dept_code_CSE",
+          "actual_value": "ECE",
+          "shap_value": 0.0036,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'dept_code_CSE' (value: ECE) contributed positively (+0.004) toward higher predicted risk."
+        }
+      ],
+      "protective_factors": [
+        {
+          "feature": "internal_marks_avg_w4",
+          "actual_value": 77.27,
+          "shap_value": -2.6953,
+          "direction": "risk_reducing",
+          "interpretation": "A strong internal assessment average of 77.27% acted as a protective indicator (-2.695) reducing predicted risk."
+        },
+        {
+          "feature": "previous_attendance_pct",
+          "actual_value": 92.94,
+          "shap_value": -1.4957,
+          "direction": "risk_reducing",
+          "interpretation": "Consistently strong attendance of 92.94% acted as a protective indicator (-1.496) lowering predicted risk."
+        },
+        {
+          "feature": "low_scoring_subjects_w4",
+          "actual_value": 0,
+          "shap_value": -0.4369,
+          "direction": "risk_reducing",
+          "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-0.437) reducing predicted risk."
+        },
+        {
+          "feature": "cumulative_cgpa_prior",
+          "actual_value": 8.2,
+          "shap_value": -0.2754,
+          "direction": "risk_reducing",
+          "interpretation": "Strong prior cumulative academic standing (8.2 GPA) served as a protective factor (-0.275)."
+        }
+      ],
+      "non_causal_disclaimer": "SHAP values describe statistical feature contributions toward the model prediction; they do not establish empirical causality."
+    },
+    "counterfactual": {
+      "student_id": "STU0250",
+      "semester_no": 2,
+      "checkpoint": "W4",
+      "status": "NO_INTERVENTION_NEEDED",
+      "message": "Student is currently classified as SAFE with low risk probability. No remedial intervention required.",
+      "current": {
+        "risk_probability": 0.0015,
+        "point_prediction": "SAFE",
+        "uncertainty_status": "CONFIDENT_SAFE",
+        "conformal_prediction_set": [
+          "SAFE"
+        ]
+      },
+      "counterfactual": null
+    },
+    "intervention_plan": {
+      "student_id": "STU0250",
+      "semester_no": 2,
+      "checkpoint": "W4",
+      "risk_probability": 0.0015,
+      "risk_class": "LOW",
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "priority": "NONE",
+      "recommendation_confidence": "HIGH",
+      "primary_intervention": {
+        "type": "NO_INTERVENTION",
+        "title": "No Remedial Intervention Warranted",
+        "priority": "NONE",
+        "confidence": "HIGH",
+        "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+        "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+        "time_horizon": "Standard semester progression"
+      },
+      "secondary_intervention": null,
+      "counterfactual_evidence": null,
+      "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+    },
+    "case_label": "Case 2: Ambiguous Student"
+  },
+  {
+    "provenance": {
+      "student_id": "STU0001",
+      "semester_no": 1,
+      "checkpoint": "W12",
+      "model_architecture": "XGBoost Classifier (Temporal Checkpoint Champion)",
+      "explainability_engine": "SHAP (TreeExplainer)",
+      "uncertainty_engine": "Split Conformal Prediction (Inductive Nonconformity)",
+      "data_source": "SYNTHETIC_ML_VALIDATED_DATASET",
+      "is_operational_db": false,
+      "analysis_timestamp": "2026-10-04T09:01:01.521019+00:00"
+    },
+    "academic_context": {
+      "department": "CSE",
+      "course": "B.TECH",
+      "cohort_entry_year": "2020-21",
+      "current_attendance_pct": 76.83,
+      "current_internal_marks_avg": 78.24,
+      "low_scoring_subjects_count": 0,
+      "low_attendance_subjects_count": 2,
+      "prior_cumulative_cgpa": "None (Sem 1)",
+      "historical_backlogs": 0
+    },
+    "prediction": {
+      "risk_probability": 0.0008,
+      "risk_percentage": 0.08,
+      "risk_class": "LOW",
+      "point_prediction": "SAFE",
+      "model_description": "Model-predicted early academic risk at Checkpoint W12."
+    },
+    "uncertainty": {
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "alpha": 0.1,
+      "coverage_target": 0.9,
+      "quantile_threshold": 0.0979
+    },
+    "explainability": {
+      "risk_factors": [
+        {
+          "feature": "cumulative_cgpa_prior",
+          "actual_value": "None (Sem 1)",
+          "shap_value": 0.1357,
+          "direction": "risk_increasing",
+          "interpretation": "Prior academic performance (None (Sem 1) GPA) contributed positively (+0.136) toward predicted risk."
+        },
+        {
+          "feature": "performance_trend",
+          "actual_value": 0.55,
+          "shap_value": 0.1236,
+          "direction": "risk_increasing",
+          "interpretation": "A downward trajectory delta (0.55) contributed positively (+0.124) to the model's risk estimation."
+        },
+        {
+          "feature": "attendance_pct_w12",
+          "actual_value": 76.83,
+          "shap_value": 0.0659,
+          "direction": "risk_increasing",
+          "interpretation": "Attendance standing of 76.83% contributed positively (+0.066) toward the model's risk score."
+        },
+        {
+          "feature": "low_attendance_subjects_w12",
+          "actual_value": 2,
+          "shap_value": 0.0434,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'low_attendance_subjects_w12' (value: 2) contributed positively (+0.043) toward higher predicted risk."
+        }
+      ],
+      "protective_factors": [
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 0,
+          "shap_value": -3.8898,
+          "direction": "risk_reducing",
+          "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-3.890) reducing predicted risk."
+        },
+        {
+          "feature": "internal_marks_avg_w12",
+          "actual_value": 78.24,
+          "shap_value": -2.0208,
+          "direction": "risk_reducing",
+          "interpretation": "A strong internal assessment average of 78.24% acted as a protective indicator (-2.021) reducing predicted risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 78.97,
+          "shap_value": -0.7563,
+          "direction": "risk_reducing",
+          "interpretation": "A strong internal assessment average of 78.97% acted as a protective indicator (-0.756) reducing predicted risk."
+        },
+        {
+          "feature": "low_scoring_subjects_w8",
+          "actual_value": 0,
+          "shap_value": -0.6498,
+          "direction": "risk_reducing",
+          "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-0.650) reducing predicted risk."
+        }
+      ],
+      "non_causal_disclaimer": "SHAP values describe statistical feature contributions toward the model prediction; they do not establish empirical causality."
+    },
+    "counterfactual": {
+      "student_id": "STU0001",
+      "semester_no": 1,
+      "checkpoint": "W12",
+      "status": "NO_INTERVENTION_NEEDED",
+      "message": "Student is currently classified as SAFE with low risk probability. No remedial intervention required.",
+      "current": {
+        "risk_probability": 0.0008,
+        "point_prediction": "SAFE",
+        "uncertainty_status": "CONFIDENT_SAFE",
+        "conformal_prediction_set": [
+          "SAFE"
+        ]
+      },
+      "counterfactual": null
+    },
+    "intervention_plan": {
+      "student_id": "STU0001",
+      "semester_no": 1,
+      "checkpoint": "W12",
+      "risk_probability": 0.0008,
+      "risk_class": "LOW",
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "priority": "NONE",
+      "recommendation_confidence": "HIGH",
+      "primary_intervention": {
+        "type": "NO_INTERVENTION",
+        "title": "No Remedial Intervention Warranted",
+        "priority": "NONE",
+        "confidence": "HIGH",
+        "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+        "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+        "time_horizon": "Standard semester progression"
+      },
+      "secondary_intervention": null,
+      "counterfactual_evidence": null,
+      "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+    },
+    "case_label": "Case 3: Confident Low-Risk Student"
+  },
+  {
+    "provenance": {
+      "student_id": "STU0069",
+      "semester_no": 6,
+      "checkpoint": "W12",
+      "model_architecture": "XGBoost Classifier (Temporal Checkpoint Champion)",
+      "explainability_engine": "SHAP (TreeExplainer)",
+      "uncertainty_engine": "Split Conformal Prediction (Inductive Nonconformity)",
+      "data_source": "SYNTHETIC_ML_VALIDATED_DATASET",
+      "is_operational_db": false,
+      "analysis_timestamp": "2026-10-04T09:01:01.594573+00:00"
+    },
+    "academic_context": {
+      "department": "CSE",
+      "course": "B.TECH",
+      "cohort_entry_year": "2021-22",
+      "current_attendance_pct": 49.31,
+      "current_internal_marks_avg": 45.75,
+      "low_scoring_subjects_count": 4,
+      "low_attendance_subjects_count": 6,
+      "prior_cumulative_cgpa": 3.91,
+      "historical_backlogs": 8
+    },
+    "prediction": {
+      "risk_probability": 0.9991,
+      "risk_percentage": 99.91,
+      "risk_class": "HIGH",
+      "point_prediction": "RISK",
+      "model_description": "Model-predicted early academic risk at Checkpoint W12."
+    },
+    "uncertainty": {
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "alpha": 0.1,
+      "coverage_target": 0.9,
+      "quantile_threshold": 0.0979
+    },
+    "explainability": {
+      "risk_factors": [
+        {
+          "feature": "internal_marks_avg_w12",
+          "actual_value": 45.75,
+          "shap_value": 4.4294,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 45.75% contributed positively (+4.429) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 4,
+          "shap_value": 2.7196,
+          "direction": "risk_increasing",
+          "interpretation": "Having 4 subject(s) below the 50% internal mark benchmark contributed positively (+2.720) toward higher predicted academic risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 51.5,
+          "shap_value": 0.9736,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 51.5% contributed positively (+0.974) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "previous_attendance_pct",
+          "actual_value": 57.0,
+          "shap_value": 0.8588,
+          "direction": "risk_increasing",
+          "interpretation": "Attendance standing of 57.0% contributed positively (+0.859) toward the model's risk score."
+        }
+      ],
+      "protective_factors": [
+        {
+          "feature": "cumulative_cgpa_prior",
+          "actual_value": 3.91,
+          "shap_value": -0.1885,
+          "direction": "risk_reducing",
+          "interpretation": "Strong prior cumulative academic standing (3.91 GPA) served as a protective factor (-0.189)."
+        },
+        {
+          "feature": "previous_sgpa",
+          "actual_value": 2.5,
+          "shap_value": -0.158,
+          "direction": "risk_reducing",
+          "interpretation": "Strong prior cumulative academic standing (2.5 GPA) served as a protective factor (-0.158)."
+        },
+        {
+          "feature": "performance_trend",
+          "actual_value": -5.72,
+          "shap_value": -0.0759,
+          "direction": "risk_reducing",
+          "interpretation": "A positive trajectory progression (-5.72) served as a protective signal (-0.076) lowering predicted risk."
+        },
+        {
+          "feature": "internal_marks_avg_w4",
+          "actual_value": 57.19,
+          "shap_value": -0.071,
+          "direction": "risk_reducing",
+          "interpretation": "A strong internal assessment average of 57.19% acted as a protective indicator (-0.071) reducing predicted risk."
+        }
+      ],
+      "non_causal_disclaimer": "SHAP values describe statistical feature contributions toward the model prediction; they do not establish empirical causality."
+    },
+    "counterfactual": {
+      "student_id": "STU0069",
+      "semester_no": 6,
+      "checkpoint": "W12",
+      "feasibility_status": "FEASIBLE_PARTIAL_REDUCTION",
+      "scenario_name": "Remediate 3 Failing Subject(s)",
+      "intervention_cost": 3.0,
+      "explanation": "Under the model, modifying low_scoring_subjects_w12 from 4 to 1 (-3.0), internal_marks_avg_w12 from 45.75 to 57.75 (+12.0) is associated with reducing predicted risk from 0.9991 to 0.6835 (a reduction of 0.3156), but the prediction remains RISK.",
+      "current": {
+        "risk_probability": 0.9991,
+        "point_prediction": "RISK",
+        "uncertainty_status": "CONFIDENT_RISK",
+        "conformal_prediction_set": [
+          "RISK"
+        ],
+        "top_risk_factors": [
+          {
+            "feature": "internal_marks_avg_w12",
+            "actual_value": 45.75,
+            "shap_value": 4.4294,
+            "direction": "risk_increasing",
+            "interpretation": "An internal assessment average of 45.75% contributed positively (+4.429) to the model's elevated risk prediction."
+          },
+          {
+            "feature": "low_scoring_subjects_w12",
+            "actual_value": 4,
+            "shap_value": 2.7196,
+            "direction": "risk_increasing",
+            "interpretation": "Having 4 subject(s) below the 50% internal mark benchmark contributed positively (+2.720) toward higher predicted academic risk."
+          },
+          {
+            "feature": "internal_marks_avg_w8",
+            "actual_value": 51.5,
+            "shap_value": 0.9736,
+            "direction": "risk_increasing",
+            "interpretation": "An internal assessment average of 51.5% contributed positively (+0.974) to the model's elevated risk prediction."
+          }
+        ]
+      },
+      "counterfactual": {
+        "modified_features": {
+          "low_scoring_subjects_w12": 1,
+          "internal_marks_avg_w12": 57.75
+        },
+        "risk_probability": 0.6835,
+        "point_prediction": "RISK",
+        "uncertainty_status": "AMBIGUOUS",
+        "conformal_prediction_set": [
+          "RISK"
+        ],
+        "probability_reduction": 0.3156,
+        "top_risk_factors": [
+          {
+            "feature": "low_scoring_subjects_w12",
+            "actual_value": 1,
+            "shap_value": 1.5792,
+            "direction": "risk_increasing",
+            "interpretation": "Having 1 subject(s) below the 50% internal mark benchmark contributed positively (+1.579) toward higher predicted academic risk."
+          },
+          {
+            "feature": "previous_attendance_pct",
+            "actual_value": 57.0,
+            "shap_value": 1.207,
+            "direction": "risk_increasing",
+            "interpretation": "Attendance standing of 57.0% contributed positively (+1.207) toward the model's risk score."
+          },
+          {
+            "feature": "internal_marks_avg_w8",
+            "actual_value": 51.5,
+            "shap_value": 0.9069,
+            "direction": "risk_increasing",
+            "interpretation": "An internal assessment average of 51.5% contributed positively (+0.907) to the model's elevated risk prediction."
+          }
+        ]
+      },
+      "all_evaluated_scenarios_count": 16,
+      "feasible_scenarios_count": 12
+    },
+    "intervention_plan": {
+      "student_id": "STU0069",
+      "semester_no": 6,
+      "checkpoint": "W12",
+      "risk_probability": 0.9991,
+      "risk_class": "HIGH",
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "priority": "CRITICAL",
+      "recommendation_confidence": "MEDIUM",
+      "primary_intervention": {
+        "type": "SUBJECT_REMEDIATION",
+        "title": "Targeted Multi-Subject Academic Remediation",
+        "priority": "CRITICAL",
+        "confidence": "MEDIUM",
+        "reason": "Student has 4 subject(s) below internal benchmarks, identified as a primary risk driver.",
+        "trigger_evidence": [
+          "internal_marks_avg_w12 (value: 45.75, SHAP: +4.429)",
+          "low_scoring_subjects_w12 (value: 4, SHAP: +2.720)",
+          "internal_marks_avg_w8 (value: 51.5, SHAP: +0.974)"
+        ],
+        "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+        "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+        "time_horizon": "Short-term (Next 2-4 weeks)"
+      },
+      "secondary_intervention": {
+        "type": "FACULTY_MENTORING",
+        "title": "One-on-One Faculty Academic Mentoring",
+        "priority": "MEDIUM",
+        "reason": "Complementary academic support recommendation.",
+        "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+      },
+      "counterfactual_evidence": {
+        "scenario_name": "Remediate 3 Failing Subject(s)",
+        "modified_features": {
+          "low_scoring_subjects_w12": 1,
+          "internal_marks_avg_w12": 57.75
+        },
+        "predicted_risk_reduction": 0.3156,
+        "new_risk_probability": 0.6835,
+        "new_point_prediction": "RISK",
+        "feasibility": "FEASIBLE_PARTIAL_REDUCTION"
+      },
+      "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+    },
+    "case_label": "Case 4: Declining Trajectory Student"
+  },
+  {
+    "provenance": {
+      "student_id": "STU0246",
+      "semester_no": 2,
+      "checkpoint": "W12",
+      "model_architecture": "XGBoost Classifier (Temporal Checkpoint Champion)",
+      "explainability_engine": "SHAP (TreeExplainer)",
+      "uncertainty_engine": "Split Conformal Prediction (Inductive Nonconformity)",
+      "data_source": "SYNTHETIC_ML_VALIDATED_DATASET",
+      "is_operational_db": false,
+      "analysis_timestamp": "2026-10-04T09:01:02.328830+00:00"
+    },
+    "academic_context": {
+      "department": "ECE",
+      "course": "B.TECH",
+      "cohort_entry_year": "2024-25",
+      "current_attendance_pct": 88.34,
+      "current_internal_marks_avg": 88.31,
+      "low_scoring_subjects_count": 0,
+      "low_attendance_subjects_count": 0,
+      "prior_cumulative_cgpa": 8.4,
+      "historical_backlogs": 0
+    },
+    "prediction": {
+      "risk_probability": 0.001,
+      "risk_percentage": 0.1,
+      "risk_class": "LOW",
+      "point_prediction": "SAFE",
+      "model_description": "Model-predicted early academic risk at Checkpoint W12."
+    },
+    "uncertainty": {
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "alpha": 0.1,
+      "coverage_target": 0.9,
+      "quantile_threshold": 0.0979
+    },
+    "explainability": {
+      "risk_factors": [
+        {
+          "feature": "admission_category_General",
+          "actual_value": "General",
+          "shap_value": 0.1393,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'admission_category_General' (value: General) contributed positively (+0.139) toward higher predicted risk."
+        },
+        {
+          "feature": "cumulative_cgpa_prior",
+          "actual_value": 8.4,
+          "shap_value": 0.1097,
+          "direction": "risk_increasing",
+          "interpretation": "Prior academic performance (8.4 GPA) contributed positively (+0.110) toward predicted risk."
+        },
+        {
+          "feature": "historical_backlogs_cumulative",
+          "actual_value": 0,
+          "shap_value": 0.0167,
+          "direction": "risk_increasing",
+          "interpretation": "Accumulated prior backlog count (0) contributed positively (+0.017) toward higher predicted risk."
+        },
+        {
+          "feature": "low_attendance_subjects_w8",
+          "actual_value": 0,
+          "shap_value": 0.0088,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'low_attendance_subjects_w8' (value: 0) contributed positively (+0.009) toward higher predicted risk."
+        }
+      ],
+      "protective_factors": [
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 0,
+          "shap_value": -3.6096,
+          "direction": "risk_reducing",
+          "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-3.610) reducing predicted risk."
+        },
+        {
+          "feature": "internal_marks_avg_w12",
+          "actual_value": 88.31,
+          "shap_value": -1.9546,
+          "direction": "risk_reducing",
+          "interpretation": "A strong internal assessment average of 88.31% acted as a protective indicator (-1.955) reducing predicted risk."
+        },
+        {
+          "feature": "previous_attendance_pct",
+          "actual_value": 88.79,
+          "shap_value": -0.7306,
+          "direction": "risk_reducing",
+          "interpretation": "Consistently strong attendance of 88.79% acted as a protective indicator (-0.731) lowering predicted risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 86.28,
+          "shap_value": -0.5115,
+          "direction": "risk_reducing",
+          "interpretation": "A strong internal assessment average of 86.28% acted as a protective indicator (-0.512) reducing predicted risk."
+        }
+      ],
+      "non_causal_disclaimer": "SHAP values describe statistical feature contributions toward the model prediction; they do not establish empirical causality."
+    },
+    "counterfactual": {
+      "student_id": "STU0246",
+      "semester_no": 2,
+      "checkpoint": "W12",
+      "status": "NO_INTERVENTION_NEEDED",
+      "message": "Student is currently classified as SAFE with low risk probability. No remedial intervention required.",
+      "current": {
+        "risk_probability": 0.001,
+        "point_prediction": "SAFE",
+        "uncertainty_status": "CONFIDENT_SAFE",
+        "conformal_prediction_set": [
+          "SAFE"
+        ]
+      },
+      "counterfactual": null
+    },
+    "intervention_plan": {
+      "student_id": "STU0246",
+      "semester_no": 2,
+      "checkpoint": "W12",
+      "risk_probability": 0.001,
+      "risk_class": "LOW",
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "priority": "NONE",
+      "recommendation_confidence": "HIGH",
+      "primary_intervention": {
+        "type": "NO_INTERVENTION",
+        "title": "No Remedial Intervention Warranted",
+        "priority": "NONE",
+        "confidence": "HIGH",
+        "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+        "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+        "time_horizon": "Standard semester progression"
+      },
+      "secondary_intervention": null,
+      "counterfactual_evidence": null,
+      "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+    },
+    "case_label": "Case 5: Recovery Trajectory Student"
+  },
+  {
+    "case_label": "Case 6: Infeasible Counterfactual Validation",
+    "student_id": "STU0001",
+    "semester_no": 1,
+    "checkpoint": "W12",
+    "custom_intervention_tested": {
+      "attendance_pct_w12": 110.0
+    },
+    "simulation_result": {
+      "status": "VALIDATION_FAILED",
+      "is_feasible": false,
+      "errors": [
+        "attendance_pct_w12: Proposed value 110.0 exceeds maximum physical bound 100.0 (e.g. attendance > 100%)."
+      ],
+      "recalculated_risk": null
+    }
+  }
+]

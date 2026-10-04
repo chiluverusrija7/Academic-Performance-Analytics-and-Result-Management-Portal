@@ -1,0 +1,428 @@
+[
+  {
+    "student_id": "STU0069",
+    "semester_no": 6,
+    "checkpoint": "W12",
+    "risk_probability": 0.9999,
+    "risk_percentage": 99.99,
+    "risk_class": "HIGH",
+    "base_value": -0.0313,
+    "risk_factors": [
+      {
+        "feature": "internal_marks_avg_w12",
+        "actual_value": 45.75,
+        "shap_value": 4.4294,
+        "direction": "risk_increasing",
+        "interpretation": "An internal assessment average of 45.75% contributed positively (+4.429) to the model's elevated risk prediction."
+      },
+      {
+        "feature": "low_scoring_subjects_w12",
+        "actual_value": 4,
+        "shap_value": 2.7196,
+        "direction": "risk_increasing",
+        "interpretation": "Having 4 subject(s) below the 50% internal mark benchmark contributed positively (+2.720) toward higher predicted academic risk."
+      },
+      {
+        "feature": "internal_marks_avg_w8",
+        "actual_value": 51.5,
+        "shap_value": 0.9736,
+        "direction": "risk_increasing",
+        "interpretation": "An internal assessment average of 51.5% contributed positively (+0.974) to the model's elevated risk prediction."
+      },
+      {
+        "feature": "previous_attendance_pct",
+        "actual_value": 57.0,
+        "shap_value": 0.8588,
+        "direction": "risk_increasing",
+        "interpretation": "Attendance standing of 57.0% contributed positively (+0.859) toward the model's risk score."
+      }
+    ],
+    "protective_factors": [
+      {
+        "feature": "cumulative_cgpa_prior",
+        "actual_value": 3.91,
+        "shap_value": -0.1885,
+        "direction": "risk_reducing",
+        "interpretation": "Strong prior cumulative academic standing (3.91 GPA) served as a protective factor (-0.189)."
+      },
+      {
+        "feature": "previous_sgpa",
+        "actual_value": 2.5,
+        "shap_value": -0.158,
+        "direction": "risk_reducing",
+        "interpretation": "Strong prior cumulative academic standing (2.5 GPA) served as a protective factor (-0.158)."
+      },
+      {
+        "feature": "performance_trend",
+        "actual_value": -5.72,
+        "shap_value": -0.0759,
+        "direction": "risk_reducing",
+        "interpretation": "A positive trajectory progression (-5.72) served as a protective signal (-0.076) lowering predicted risk."
+      },
+      {
+        "feature": "internal_marks_avg_w4",
+        "actual_value": 57.19,
+        "shap_value": -0.071,
+        "direction": "risk_reducing",
+        "interpretation": "A strong internal assessment average of 57.19% acted as a protective indicator (-0.071) reducing predicted risk."
+      }
+    ],
+    "case_type": "True Positive (Correct High-Risk Flag)",
+    "actual_ground_truth_target": 1
+  },
+  {
+    "student_id": "STU0226",
+    "semester_no": 2,
+    "checkpoint": "W12",
+    "risk_probability": 0.0,
+    "risk_percentage": 0.0,
+    "risk_class": "LOW",
+    "base_value": -0.0313,
+    "risk_factors": [
+      {
+        "feature": "cumulative_cgpa_prior",
+        "actual_value": 8.0,
+        "shap_value": 0.1319,
+        "direction": "risk_increasing",
+        "interpretation": "Prior academic performance (8.0 GPA) contributed positively (+0.132) toward predicted risk."
+      },
+      {
+        "feature": "admission_category_ST",
+        "actual_value": "ST",
+        "shap_value": 0.0488,
+        "direction": "risk_increasing",
+        "interpretation": "Feature 'admission_category_ST' (value: ST) contributed positively (+0.049) toward higher predicted risk."
+      },
+      {
+        "feature": "attendance_pct_w4",
+        "actual_value": 83.49,
+        "shap_value": 0.0369,
+        "direction": "risk_increasing",
+        "interpretation": "Attendance standing of 83.49% contributed positively (+0.037) toward the model's risk score."
+      },
+      {
+        "feature": "historical_backlogs_cumulative",
+        "actual_value": 0,
+        "shap_value": 0.0159,
+        "direction": "risk_increasing",
+        "interpretation": "Accumulated prior backlog count (0) contributed positively (+0.016) toward higher predicted risk."
+      }
+    ],
+    "protective_factors": [
+      {
+        "feature": "low_scoring_subjects_w12",
+        "actual_value": 0,
+        "shap_value": -3.7654,
+        "direction": "risk_reducing",
+        "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-3.765) reducing predicted risk."
+      },
+      {
+        "feature": "internal_marks_avg_w12",
+        "actual_value": 67.74,
+        "shap_value": -1.8954,
+        "direction": "risk_reducing",
+        "interpretation": "A strong internal assessment average of 67.74% acted as a protective indicator (-1.895) reducing predicted risk."
+      },
+      {
+        "feature": "internal_marks_avg_w8",
+        "actual_value": 69.24,
+        "shap_value": -0.7367,
+        "direction": "risk_reducing",
+        "interpretation": "A strong internal assessment average of 69.24% acted as a protective indicator (-0.737) reducing predicted risk."
+      },
+      {
+        "feature": "low_scoring_subjects_w8",
+        "actual_value": 0,
+        "shap_value": -0.6101,
+        "direction": "risk_reducing",
+        "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-0.610) reducing predicted risk."
+      }
+    ],
+    "case_type": "True Negative (Correct Low-Risk Safe)",
+    "actual_ground_truth_target": 0
+  },
+  {
+    "student_id": "STU0222",
+    "semester_no": 1,
+    "checkpoint": "W12",
+    "risk_probability": 0.9982,
+    "risk_percentage": 99.82,
+    "risk_class": "HIGH",
+    "base_value": -0.0313,
+    "risk_factors": [
+      {
+        "feature": "internal_marks_avg_w12",
+        "actual_value": 53.01,
+        "shap_value": 3.3368,
+        "direction": "risk_increasing",
+        "interpretation": "An internal assessment average of 53.01% contributed positively (+3.337) to the model's elevated risk prediction."
+      },
+      {
+        "feature": "low_scoring_subjects_w12",
+        "actual_value": 2,
+        "shap_value": 2.4553,
+        "direction": "risk_increasing",
+        "interpretation": "Having 2 subject(s) below the 50% internal mark benchmark contributed positively (+2.455) toward higher predicted academic risk."
+      },
+      {
+        "feature": "internal_marks_avg_w8",
+        "actual_value": 51.83,
+        "shap_value": 1.1843,
+        "direction": "risk_increasing",
+        "interpretation": "An internal assessment average of 51.83% contributed positively (+1.184) to the model's elevated risk prediction."
+      },
+      {
+        "feature": "cumulative_cgpa_prior",
+        "actual_value": "None (Sem 1)",
+        "shap_value": 0.2439,
+        "direction": "risk_increasing",
+        "interpretation": "Prior academic performance (None (Sem 1) GPA) contributed positively (+0.244) toward predicted risk."
+      }
+    ],
+    "protective_factors": [
+      {
+        "feature": "dept_code_ECE",
+        "actual_value": "ECE",
+        "shap_value": -0.2438,
+        "direction": "risk_reducing",
+        "interpretation": "Feature 'dept_code_ECE' (value: ECE) contributed negatively (-0.244) toward lower predicted risk."
+      },
+      {
+        "feature": "semester_no",
+        "actual_value": 1,
+        "shap_value": -0.2283,
+        "direction": "risk_reducing",
+        "interpretation": "Feature 'semester_no' (value: 1) contributed negatively (-0.228) toward lower predicted risk."
+      },
+      {
+        "feature": "marks_change_w4_w8",
+        "actual_value": 1.26,
+        "shap_value": -0.2066,
+        "direction": "risk_reducing",
+        "interpretation": "A positive trajectory progression (1.26) served as a protective signal (-0.207) lowering predicted risk."
+      },
+      {
+        "feature": "attendance_change_w4_w8",
+        "actual_value": 2.34,
+        "shap_value": -0.1808,
+        "direction": "risk_reducing",
+        "interpretation": "A positive trajectory progression (2.34) served as a protective signal (-0.181) lowering predicted risk."
+      }
+    ],
+    "case_type": "False Positive (Borderline Alert, Student Passed)",
+    "actual_ground_truth_target": 0
+  },
+  {
+    "student_id": "STU0047",
+    "semester_no": 7,
+    "checkpoint": "W12",
+    "risk_probability": 0.0299,
+    "risk_percentage": 2.99,
+    "risk_class": "LOW",
+    "base_value": -0.0313,
+    "risk_factors": [
+      {
+        "feature": "low_scoring_subjects_w12",
+        "actual_value": 1,
+        "shap_value": 1.3422,
+        "direction": "risk_increasing",
+        "interpretation": "Having 1 subject(s) below the 50% internal mark benchmark contributed positively (+1.342) toward higher predicted academic risk."
+      },
+      {
+        "feature": "low_scoring_subjects_w8",
+        "actual_value": 1,
+        "shap_value": 0.5849,
+        "direction": "risk_increasing",
+        "interpretation": "Having 1 subject(s) below the 50% internal mark benchmark contributed positively (+0.585) toward higher predicted academic risk."
+      },
+      {
+        "feature": "semester_no",
+        "actual_value": 7,
+        "shap_value": 0.4721,
+        "direction": "risk_increasing",
+        "interpretation": "Feature 'semester_no' (value: 7) contributed positively (+0.472) toward higher predicted risk."
+      },
+      {
+        "feature": "low_scoring_subjects_w4",
+        "actual_value": 1,
+        "shap_value": 0.3563,
+        "direction": "risk_increasing",
+        "interpretation": "Having 1 subject(s) below the 50% internal mark benchmark contributed positively (+0.356) toward higher predicted academic risk."
+      }
+    ],
+    "protective_factors": [
+      {
+        "feature": "internal_marks_avg_w12",
+        "actual_value": 61.7,
+        "shap_value": -2.2367,
+        "direction": "risk_reducing",
+        "interpretation": "A strong internal assessment average of 61.7% acted as a protective indicator (-2.237) reducing predicted risk."
+      },
+      {
+        "feature": "internal_marks_avg_w8",
+        "actual_value": 62.9,
+        "shap_value": -0.9712,
+        "direction": "risk_reducing",
+        "interpretation": "A strong internal assessment average of 62.9% acted as a protective indicator (-0.971) reducing predicted risk."
+      },
+      {
+        "feature": "attendance_change_w4_w8",
+        "actual_value": -2.44,
+        "shap_value": -0.7873,
+        "direction": "risk_reducing",
+        "interpretation": "A positive trajectory progression (-2.44) served as a protective signal (-0.787) lowering predicted risk."
+      },
+      {
+        "feature": "performance_trend",
+        "actual_value": -1.51,
+        "shap_value": -0.4952,
+        "direction": "risk_reducing",
+        "interpretation": "A positive trajectory progression (-1.51) served as a protective signal (-0.495) lowering predicted risk."
+      }
+    ],
+    "case_type": "False Negative (Missed Risk Alert, Student Failed)",
+    "actual_ground_truth_target": 1
+  },
+  {
+    "student_id": "STU0027",
+    "semester_no": 7,
+    "checkpoint": "W12",
+    "risk_probability": 0.0003,
+    "risk_percentage": 0.03,
+    "risk_class": "LOW",
+    "base_value": -0.0313,
+    "risk_factors": [
+      {
+        "feature": "entrance_rank_percentile",
+        "actual_value": 33.37,
+        "shap_value": 0.3838,
+        "direction": "risk_increasing",
+        "interpretation": "Feature 'entrance_rank_percentile' (value: 33.37) contributed positively (+0.384) toward higher predicted risk."
+      },
+      {
+        "feature": "low_scoring_subjects_w4",
+        "actual_value": 1,
+        "shap_value": 0.1608,
+        "direction": "risk_increasing",
+        "interpretation": "Having 1 subject(s) below the 50% internal mark benchmark contributed positively (+0.161) toward higher predicted academic risk."
+      },
+      {
+        "feature": "semester_no",
+        "actual_value": 7,
+        "shap_value": 0.1343,
+        "direction": "risk_increasing",
+        "interpretation": "Feature 'semester_no' (value: 7) contributed positively (+0.134) toward higher predicted risk."
+      },
+      {
+        "feature": "attendance_pct_w4",
+        "actual_value": 81.31,
+        "shap_value": 0.0973,
+        "direction": "risk_increasing",
+        "interpretation": "Attendance standing of 81.31% contributed positively (+0.097) toward the model's risk score."
+      }
+    ],
+    "protective_factors": [
+      {
+        "feature": "low_scoring_subjects_w12",
+        "actual_value": 0,
+        "shap_value": -4.2599,
+        "direction": "risk_reducing",
+        "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-4.260) reducing predicted risk."
+      },
+      {
+        "feature": "internal_marks_avg_w12",
+        "actual_value": 70.57,
+        "shap_value": -1.7387,
+        "direction": "risk_reducing",
+        "interpretation": "A strong internal assessment average of 70.57% acted as a protective indicator (-1.739) reducing predicted risk."
+      },
+      {
+        "feature": "previous_attendance_pct",
+        "actual_value": 97.4,
+        "shap_value": -0.6782,
+        "direction": "risk_reducing",
+        "interpretation": "Consistently strong attendance of 97.4% acted as a protective indicator (-0.678) lowering predicted risk."
+      },
+      {
+        "feature": "low_scoring_subjects_w8",
+        "actual_value": 0,
+        "shap_value": -0.4569,
+        "direction": "risk_reducing",
+        "interpretation": "Having few/no failing internal assessment subjects (0) served as an indicator (-0.457) reducing predicted risk."
+      }
+    ],
+    "case_type": "Recovery Trajectory (Early Struggle to Recovery)",
+    "actual_ground_truth_target": 0
+  },
+  {
+    "student_id": "STU0069",
+    "semester_no": 6,
+    "checkpoint": "W12",
+    "risk_probability": 0.9999,
+    "risk_percentage": 99.99,
+    "risk_class": "HIGH",
+    "base_value": -0.0313,
+    "risk_factors": [
+      {
+        "feature": "internal_marks_avg_w12",
+        "actual_value": 45.75,
+        "shap_value": 4.4294,
+        "direction": "risk_increasing",
+        "interpretation": "An internal assessment average of 45.75% contributed positively (+4.429) to the model's elevated risk prediction."
+      },
+      {
+        "feature": "low_scoring_subjects_w12",
+        "actual_value": 4,
+        "shap_value": 2.7196,
+        "direction": "risk_increasing",
+        "interpretation": "Having 4 subject(s) below the 50% internal mark benchmark contributed positively (+2.720) toward higher predicted academic risk."
+      },
+      {
+        "feature": "internal_marks_avg_w8",
+        "actual_value": 51.5,
+        "shap_value": 0.9736,
+        "direction": "risk_increasing",
+        "interpretation": "An internal assessment average of 51.5% contributed positively (+0.974) to the model's elevated risk prediction."
+      },
+      {
+        "feature": "previous_attendance_pct",
+        "actual_value": 57.0,
+        "shap_value": 0.8588,
+        "direction": "risk_increasing",
+        "interpretation": "Attendance standing of 57.0% contributed positively (+0.859) toward the model's risk score."
+      }
+    ],
+    "protective_factors": [
+      {
+        "feature": "cumulative_cgpa_prior",
+        "actual_value": 3.91,
+        "shap_value": -0.1885,
+        "direction": "risk_reducing",
+        "interpretation": "Strong prior cumulative academic standing (3.91 GPA) served as a protective factor (-0.189)."
+      },
+      {
+        "feature": "previous_sgpa",
+        "actual_value": 2.5,
+        "shap_value": -0.158,
+        "direction": "risk_reducing",
+        "interpretation": "Strong prior cumulative academic standing (2.5 GPA) served as a protective factor (-0.158)."
+      },
+      {
+        "feature": "performance_trend",
+        "actual_value": -5.72,
+        "shap_value": -0.0759,
+        "direction": "risk_reducing",
+        "interpretation": "A positive trajectory progression (-5.72) served as a protective signal (-0.076) lowering predicted risk."
+      },
+      {
+        "feature": "internal_marks_avg_w4",
+        "actual_value": 57.19,
+        "shap_value": -0.071,
+        "direction": "risk_reducing",
+        "interpretation": "A strong internal assessment average of 57.19% acted as a protective indicator (-0.071) reducing predicted risk."
+      }
+    ],
+    "case_type": "Declining Trajectory (Early Strength to Disengagement)",
+    "actual_ground_truth_target": 1
+  }
+]

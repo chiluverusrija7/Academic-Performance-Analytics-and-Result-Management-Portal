@@ -1,0 +1,350 @@
+[
+  {
+    "student_id": "STU0016",
+    "semester_no": 2,
+    "checkpoint": "W12",
+    "feasibility_status": "FEASIBLE_THRESHOLD_CROSSED",
+    "scenario_name": "Combined Intervention (+10% Att, +10 Marks)",
+    "intervention_cost": 1.5,
+    "explanation": "Under the model, modifying attendance_pct_w12 from 76.37 to 86.37 (+10.0), internal_marks_avg_w12 from 46.09 to 56.09 (+10.0), low_scoring_subjects_w12 from 3 to 2 (-1.0) is associated with reducing predicted risk from 0.9991 to 0.4628 (a reduction of 0.5363), shifting the point prediction from RISK to SAFE and uncertainty from CONFIDENT_RISK to AMBIGUOUS.",
+    "current": {
+      "risk_probability": 0.9991,
+      "point_prediction": "RISK",
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "top_risk_factors": [
+        {
+          "feature": "internal_marks_avg_w12",
+          "actual_value": 46.09,
+          "shap_value": 4.3037,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 46.09% contributed positively (+4.304) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 3,
+          "shap_value": 2.8211,
+          "direction": "risk_increasing",
+          "interpretation": "Having 3 subject(s) below the 50% internal mark benchmark contributed positively (+2.821) toward higher predicted academic risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 44.63,
+          "shap_value": 1.267,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 44.63% contributed positively (+1.267) to the model's elevated risk prediction."
+        }
+      ]
+    },
+    "counterfactual": {
+      "modified_features": {
+        "attendance_pct_w12": 86.37,
+        "internal_marks_avg_w12": 56.09,
+        "low_scoring_subjects_w12": 2
+      },
+      "risk_probability": 0.4628,
+      "point_prediction": "SAFE",
+      "uncertainty_status": "AMBIGUOUS",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "probability_reduction": 0.5363,
+      "top_risk_factors": [
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 2,
+          "shap_value": 2.2375,
+          "direction": "risk_increasing",
+          "interpretation": "Having 2 subject(s) below the 50% internal mark benchmark contributed positively (+2.237) toward higher predicted academic risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 44.63,
+          "shap_value": 0.9775,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 44.63% contributed positively (+0.978) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "marks_change_w4_w8",
+          "actual_value": -4.12,
+          "shap_value": 0.5425,
+          "direction": "risk_increasing",
+          "interpretation": "A downward trajectory delta (-4.12) contributed positively (+0.543) to the model's risk estimation."
+        }
+      ]
+    },
+    "all_evaluated_scenarios_count": 16,
+    "feasible_scenarios_count": 14,
+    "case_description": "Case 1: W12 High-Risk Trajectory \u2014 Combined Remedial Intervention"
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 1,
+    "checkpoint": "W8",
+    "feasibility_status": "FEASIBLE_THRESHOLD_CROSSED",
+    "scenario_name": "Internal Marks Improvement (+5 pts)",
+    "intervention_cost": 0.25,
+    "explanation": "Under the model, modifying internal_marks_avg_w8 from 48.93 to 53.93 (+5.0) is associated with reducing predicted risk from 0.9940 to 0.2824 (a reduction of 0.7116), shifting the point prediction from RISK to SAFE and uncertainty from CONFIDENT_RISK to AMBIGUOUS.",
+    "current": {
+      "risk_probability": 0.994,
+      "point_prediction": "RISK",
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "top_risk_factors": [
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 48.93,
+          "shap_value": 3.7129,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 48.93% contributed positively (+3.713) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "low_scoring_subjects_w8",
+          "actual_value": 3,
+          "shap_value": 1.7564,
+          "direction": "risk_increasing",
+          "interpretation": "Having 3 subject(s) below the 50% internal mark benchmark contributed positively (+1.756) toward higher predicted academic risk."
+        },
+        {
+          "feature": "marks_change_w4_w8",
+          "actual_value": -0.08,
+          "shap_value": 0.3653,
+          "direction": "risk_increasing",
+          "interpretation": "A downward trajectory delta (-0.08) contributed positively (+0.365) to the model's risk estimation."
+        }
+      ]
+    },
+    "counterfactual": {
+      "modified_features": {
+        "internal_marks_avg_w8": 53.93
+      },
+      "risk_probability": 0.2824,
+      "point_prediction": "SAFE",
+      "uncertainty_status": "AMBIGUOUS",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "probability_reduction": 0.7116,
+      "top_risk_factors": [
+        {
+          "feature": "low_scoring_subjects_w8",
+          "actual_value": 3,
+          "shap_value": 1.314,
+          "direction": "risk_increasing",
+          "interpretation": "Having 3 subject(s) below the 50% internal mark benchmark contributed positively (+1.314) toward higher predicted academic risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 53.93,
+          "shap_value": 1.2246,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 53.93% contributed positively (+1.225) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "fee_payment_status_Paid",
+          "actual_value": "Overdue",
+          "shap_value": 0.1425,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'fee_payment_status_Paid' (value: Overdue) contributed positively (+0.143) toward higher predicted risk."
+        }
+      ]
+    },
+    "all_evaluated_scenarios_count": 16,
+    "feasible_scenarios_count": 16,
+    "case_description": "Case 2: W8 Moderate Risk \u2014 Attendance Improvement Scenario"
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 2,
+    "checkpoint": "W4",
+    "feasibility_status": "FEASIBLE_THRESHOLD_CROSSED",
+    "scenario_name": "Internal Marks Improvement (+20 pts)",
+    "intervention_cost": 1.0,
+    "explanation": "Under the model, modifying internal_marks_avg_w4 from 48.75 to 68.75 (+20.0) is associated with reducing predicted risk from 0.9191 to 0.0503 (a reduction of 0.8688), shifting the point prediction from RISK to SAFE and uncertainty from CONFIDENT_RISK to CONFIDENT_SAFE.",
+    "current": {
+      "risk_probability": 0.9191,
+      "point_prediction": "RISK",
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "top_risk_factors": [
+        {
+          "feature": "internal_marks_avg_w4",
+          "actual_value": 48.75,
+          "shap_value": 2.6001,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 48.75% contributed positively (+2.600) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "low_scoring_subjects_w4",
+          "actual_value": 3,
+          "shap_value": 0.3855,
+          "direction": "risk_increasing",
+          "interpretation": "Having 3 subject(s) below the 50% internal mark benchmark contributed positively (+0.385) toward higher predicted academic risk."
+        },
+        {
+          "feature": "dept_code_ECE",
+          "actual_value": "DS",
+          "shap_value": 0.3433,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'dept_code_ECE' (value: DS) contributed positively (+0.343) toward higher predicted risk."
+        }
+      ]
+    },
+    "counterfactual": {
+      "modified_features": {
+        "internal_marks_avg_w4": 68.75
+      },
+      "risk_probability": 0.0503,
+      "point_prediction": "SAFE",
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ],
+      "probability_reduction": 0.8688,
+      "top_risk_factors": [
+        {
+          "feature": "low_scoring_subjects_w4",
+          "actual_value": 3,
+          "shap_value": 0.508,
+          "direction": "risk_increasing",
+          "interpretation": "Having 3 subject(s) below the 50% internal mark benchmark contributed positively (+0.508) toward higher predicted academic risk."
+        },
+        {
+          "feature": "previous_sgpa",
+          "actual_value": 6.4,
+          "shap_value": 0.1708,
+          "direction": "risk_increasing",
+          "interpretation": "Prior academic performance (6.4 GPA) contributed positively (+0.171) toward predicted risk."
+        },
+        {
+          "feature": "dept_code_ECE",
+          "actual_value": "DS",
+          "shap_value": 0.0284,
+          "direction": "risk_increasing",
+          "interpretation": "Feature 'dept_code_ECE' (value: DS) contributed positively (+0.028) toward higher predicted risk."
+        }
+      ]
+    },
+    "all_evaluated_scenarios_count": 16,
+    "feasible_scenarios_count": 11,
+    "case_description": "Case 3: W4 Early-Term Vulnerability \u2014 Early Assessment Intervention"
+  },
+  {
+    "student_id": "STU0036",
+    "semester_no": 4,
+    "checkpoint": "W12",
+    "feasibility_status": "FEASIBLE_PARTIAL_REDUCTION",
+    "scenario_name": "Internal Marks Improvement (+20 pts)",
+    "intervention_cost": 1.0,
+    "explanation": "Under the model, modifying internal_marks_avg_w12 from 40.36 to 60.36 (+20.0) is associated with reducing predicted risk from 0.9992 to 0.7186 (a reduction of 0.2806), but the prediction remains RISK.",
+    "current": {
+      "risk_probability": 0.9992,
+      "point_prediction": "RISK",
+      "uncertainty_status": "CONFIDENT_RISK",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "top_risk_factors": [
+        {
+          "feature": "internal_marks_avg_w12",
+          "actual_value": 40.36,
+          "shap_value": 4.7379,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 40.36% contributed positively (+4.738) to the model's elevated risk prediction."
+        },
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 6,
+          "shap_value": 2.6932,
+          "direction": "risk_increasing",
+          "interpretation": "Having 6 subject(s) below the 50% internal mark benchmark contributed positively (+2.693) toward higher predicted academic risk."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 43.48,
+          "shap_value": 1.2388,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 43.48% contributed positively (+1.239) to the model's elevated risk prediction."
+        }
+      ]
+    },
+    "counterfactual": {
+      "modified_features": {
+        "internal_marks_avg_w12": 60.36
+      },
+      "risk_probability": 0.7186,
+      "point_prediction": "RISK",
+      "uncertainty_status": "AMBIGUOUS",
+      "conformal_prediction_set": [
+        "RISK"
+      ],
+      "probability_reduction": 0.2806,
+      "top_risk_factors": [
+        {
+          "feature": "low_scoring_subjects_w12",
+          "actual_value": 6,
+          "shap_value": 2.2686,
+          "direction": "risk_increasing",
+          "interpretation": "Having 6 subject(s) below the 50% internal mark benchmark contributed positively (+2.269) toward higher predicted academic risk."
+        },
+        {
+          "feature": "previous_attendance_pct",
+          "actual_value": 56.58,
+          "shap_value": 1.142,
+          "direction": "risk_increasing",
+          "interpretation": "Attendance standing of 56.58% contributed positively (+1.142) toward the model's risk score."
+        },
+        {
+          "feature": "internal_marks_avg_w8",
+          "actual_value": 43.48,
+          "shap_value": 1.0584,
+          "direction": "risk_increasing",
+          "interpretation": "An internal assessment average of 43.48% contributed positively (+1.058) to the model's elevated risk prediction."
+        }
+      ]
+    },
+    "all_evaluated_scenarios_count": 16,
+    "feasible_scenarios_count": 12,
+    "case_description": "Case 4: W12 Severe Chronic Failure \u2014 Partial Reduction (High Residual Risk)"
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 3,
+    "checkpoint": "W12",
+    "status": "NO_INTERVENTION_NEEDED",
+    "message": "Student is currently classified as SAFE with low risk probability. No remedial intervention required.",
+    "current": {
+      "risk_probability": 0.0013,
+      "point_prediction": "SAFE",
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ]
+    },
+    "counterfactual": null,
+    "case_description": "Case 5: High-Performing Baseline \u2014 No Intervention Warranted"
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 6,
+    "checkpoint": "W8",
+    "status": "NO_INTERVENTION_NEEDED",
+    "message": "Student is currently classified as SAFE with low risk probability. No remedial intervention required.",
+    "current": {
+      "risk_probability": 0.001,
+      "point_prediction": "SAFE",
+      "uncertainty_status": "CONFIDENT_SAFE",
+      "conformal_prediction_set": [
+        "SAFE"
+      ]
+    },
+    "counterfactual": null,
+    "case_description": "Case 6: Confident Safe Student \u2014 Filtered from Unnecessary Remediation"
+  }
+]

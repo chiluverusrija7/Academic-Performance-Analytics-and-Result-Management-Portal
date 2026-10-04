@@ -1,0 +1,2793 @@
+[
+  {
+    "student_id": "STU0011",
+    "semester_no": 8,
+    "checkpoint": "W4",
+    "risk_probability": 0.6734,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "HIGH",
+    "recommendation_confidence": "MEDIUM",
+    "primary_intervention": {
+      "type": "ATTENDANCE_SUPPORT",
+      "title": "Attendance Recovery & Class Engagement Support",
+      "priority": "HIGH",
+      "confidence": "MEDIUM",
+      "reason": "Attendance standing of 75.7% (2 short-attendance subjects) contributed positively to predicted risk.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 66.03, SHAP: +0.515)",
+        "low_attendance_subjects_w4 (value: 2, SHAP: +0.060)",
+        "cumulative_cgpa_prior (value: 7.87, SHAP: +0.056)"
+      ],
+      "suggested_action": "Establish an attendance recovery contract, conduct weekly check-ins with faculty advisor, and notify course instructors for lab/lecture participation monitoring.",
+      "expected_model_effect": "Counterfactual simulations indicate that improving in-semester attendance by +5% to +10% substantially reduces predicted risk.",
+      "time_horizon": "Immediate (Next 2-3 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 71.03
+      },
+      "predicted_risk_reduction": 0.4801,
+      "new_risk_probability": 0.1933,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 2,
+    "checkpoint": "W4",
+    "risk_probability": 0.9191,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 48.75, SHAP: +2.600)",
+        "low_scoring_subjects_w4 (value: 3, SHAP: +0.386)",
+        "attendance_pct_w4 (value: 78.38, SHAP: +0.220)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 68.75
+      },
+      "predicted_risk_reduction": 0.8688,
+      "new_risk_probability": 0.0503,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 3,
+    "checkpoint": "W4",
+    "risk_probability": 0.9644,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "ATTENDANCE_SUPPORT",
+      "title": "Attendance Recovery & Class Engagement Support",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Attendance standing of 83.5% (0 short-attendance subjects) contributed positively to predicted risk.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 53.37, SHAP: +1.191)",
+        "cumulative_cgpa_prior (value: 4.9, SHAP: +0.641)",
+        "attendance_pct_w4 (value: 83.53, SHAP: +0.397)"
+      ],
+      "suggested_action": "Establish an attendance recovery contract, conduct weekly check-ins with faculty advisor, and notify course instructors for lab/lecture participation monitoring.",
+      "expected_model_effect": "Counterfactual simulations indicate that improving in-semester attendance by +5% to +10% substantially reduces predicted risk.",
+      "time_horizon": "Immediate (Next 2-3 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "STUDY_PLAN",
+      "title": "Structured Study Plan & Time-Management Framework",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Provide guided coursework timetable, milestone-based assignment submission targets, and self-paced remedial module schedules."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+15 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 68.37
+      },
+      "predicted_risk_reduction": 0.7699,
+      "new_risk_probability": 0.1945,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 4,
+    "checkpoint": "W4",
+    "risk_probability": 0.9793,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 50.43, SHAP: +2.520)",
+        "low_scoring_subjects_w4 (value: 3, SHAP: +0.455)",
+        "attendance_pct_w4 (value: 85.83, SHAP: +0.288)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 70.43
+      },
+      "predicted_risk_reduction": 0.8,
+      "new_risk_probability": 0.1793,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 1,
+    "checkpoint": "W4",
+    "risk_probability": 0.9518,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 49.01, SHAP: +2.933)",
+        "low_scoring_subjects_w4 (value: 3, SHAP: +0.384)",
+        "cumulative_cgpa_prior (value: None (Sem 1), SHAP: +0.119)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+15 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 64.00999999999999
+      },
+      "predicted_risk_reduction": 0.5125,
+      "new_risk_probability": 0.4393,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 2,
+    "checkpoint": "W4",
+    "risk_probability": 0.9381,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 47.55, SHAP: +2.265)",
+        "previous_attendance_pct (value: 57.59, SHAP: +1.661)",
+        "low_scoring_subjects_w4 (value: 3, SHAP: +0.442)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 67.55
+      },
+      "predicted_risk_reduction": 0.4554,
+      "new_risk_probability": 0.4827,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 3,
+    "checkpoint": "W4",
+    "risk_probability": 0.9622,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 50.33, SHAP: +2.467)",
+        "low_scoring_subjects_w4 (value: 2, SHAP: +0.561)",
+        "attendance_pct_w4 (value: 81.84, SHAP: +0.444)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 70.33
+      },
+      "predicted_risk_reduction": 0.8657,
+      "new_risk_probability": 0.0965,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 4,
+    "checkpoint": "W4",
+    "risk_probability": 0.8128,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "HIGH",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "HIGH",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 55.67, SHAP: +1.097)",
+        "previous_sgpa (value: 4.0, SHAP: +0.758)",
+        "cumulative_cgpa_prior (value: 4.93, SHAP: +0.517)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "STUDY_PLAN",
+      "title": "Structured Study Plan & Time-Management Framework",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Provide guided coursework timetable, milestone-based assignment submission targets, and self-paced remedial module schedules."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+15 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 70.67
+      },
+      "predicted_risk_reduction": 0.7665,
+      "new_risk_probability": 0.0463,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 5,
+    "checkpoint": "W4",
+    "risk_probability": 0.9793,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 50.83, SHAP: +2.591)",
+        "previous_attendance_pct (value: 65.62, SHAP: +0.934)",
+        "cumulative_cgpa_prior (value: 4.95, SHAP: +0.433)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 70.83
+      },
+      "predicted_risk_reduction": 0.9034,
+      "new_risk_probability": 0.0759,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 6,
+    "checkpoint": "W4",
+    "risk_probability": 0.991,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 48.7, SHAP: +2.459)",
+        "previous_attendance_pct (value: 55.59, SHAP: +2.000)",
+        "low_scoring_subjects_w4 (value: 3, SHAP: +0.453)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 68.7
+      },
+      "predicted_risk_reduction": 0.8941,
+      "new_risk_probability": 0.0969,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0019",
+    "semester_no": 2,
+    "checkpoint": "W4",
+    "risk_probability": 0.8962,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 50.79, SHAP: +2.483)",
+        "low_scoring_subjects_w4 (value: 3, SHAP: +0.364)",
+        "attendance_pct_w4 (value: 79.32, SHAP: +0.223)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 70.78999999999999
+      },
+      "predicted_risk_reduction": 0.8535,
+      "new_risk_probability": 0.0427,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0019",
+    "semester_no": 5,
+    "checkpoint": "W4",
+    "risk_probability": 0.7396,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "HIGH",
+    "recommendation_confidence": "MEDIUM",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "HIGH",
+      "confidence": "MEDIUM",
+      "reason": "Student has 1 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 53.54, SHAP: +1.154)",
+        "low_scoring_subjects_w4 (value: 1, SHAP: +0.342)",
+        "low_attendance_subjects_w4 (value: 2, SHAP: +0.127)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+15 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 68.53999999999999
+      },
+      "predicted_risk_reduction": 0.6939,
+      "new_risk_probability": 0.0457,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0020",
+    "semester_no": 6,
+    "checkpoint": "W4",
+    "risk_probability": 0.6676,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "HIGH",
+    "recommendation_confidence": "MEDIUM",
+    "primary_intervention": {
+      "type": "ATTENDANCE_SUPPORT",
+      "title": "Attendance Recovery & Class Engagement Support",
+      "priority": "HIGH",
+      "confidence": "MEDIUM",
+      "reason": "Attendance standing of 74.4% (2 short-attendance subjects) contributed positively to predicted risk.",
+      "trigger_evidence": [
+        "previous_attendance_pct (value: 64.54, SHAP: +2.044)",
+        "internal_marks_avg_w4 (value: 62.16, SHAP: +0.896)"
+      ],
+      "suggested_action": "Establish an attendance recovery contract, conduct weekly check-ins with faculty advisor, and notify course instructors for lab/lecture participation monitoring.",
+      "expected_model_effect": "Counterfactual simulations indicate that improving in-semester attendance by +5% to +10% substantially reduces predicted risk.",
+      "time_horizon": "Immediate (Next 2-3 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 67.16
+      },
+      "predicted_risk_reduction": 0.5131,
+      "new_risk_probability": 0.1545,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0027",
+    "semester_no": 1,
+    "checkpoint": "W4",
+    "risk_probability": 0.9674,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 5 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 34.46, SHAP: +4.146)",
+        "low_scoring_subjects_w4 (value: 5, SHAP: +0.310)",
+        "cumulative_cgpa_prior (value: None (Sem 1), SHAP: +0.151)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w4": 54.46
+      },
+      "predicted_risk_reduction": 0.6949,
+      "new_risk_probability": 0.2725,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0027",
+    "semester_no": 3,
+    "checkpoint": "W4",
+    "risk_probability": 0.9096,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "MEDIUM",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "MEDIUM",
+      "reason": "Student has 6 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w4 (value: 42.24, SHAP: +2.239)",
+        "low_scoring_subjects_w4 (value: 6, SHAP: +0.377)",
+        "low_attendance_subjects_w4 (value: 0, SHAP: +0.132)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Remediate 3 Failing Subject(s)",
+      "modified_features": {
+        "low_scoring_subjects_w4": 3,
+        "internal_marks_avg_w4": 54.24
+      },
+      "predicted_risk_reduction": 0.309,
+      "new_risk_probability": 0.6006,
+      "new_point_prediction": "RISK",
+      "feasibility": "FEASIBLE_PARTIAL_REDUCTION"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 1,
+    "checkpoint": "W4",
+    "risk_probability": 0.006,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 2,
+    "checkpoint": "W4",
+    "risk_probability": 0.0027,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 3,
+    "checkpoint": "W4",
+    "risk_probability": 0.0027,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 4,
+    "checkpoint": "W4",
+    "risk_probability": 0.0151,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 5,
+    "checkpoint": "W4",
+    "risk_probability": 0.003,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 6,
+    "checkpoint": "W4",
+    "risk_probability": 0.0016,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 7,
+    "checkpoint": "W4",
+    "risk_probability": 0.0038,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 8,
+    "checkpoint": "W4",
+    "risk_probability": 0.0018,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0002",
+    "semester_no": 1,
+    "checkpoint": "W4",
+    "risk_probability": 0.0073,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0002",
+    "semester_no": 2,
+    "checkpoint": "W4",
+    "risk_probability": 0.0022,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0011",
+    "semester_no": 8,
+    "checkpoint": "W8",
+    "risk_probability": 0.8991,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 1 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "low_scoring_subjects_w8 (value: 1, SHAP: +1.926)",
+        "attendance_change_w4_w8 (value: 0.29, SHAP: +0.459)",
+        "cumulative_cgpa_prior (value: 7.87, SHAP: +0.294)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "STUDY_PLAN",
+      "title": "Structured Study Plan & Time-Management Framework",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Provide guided coursework timetable, milestone-based assignment submission targets, and self-paced remedial module schedules."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Attendance Improvement (+5%)",
+      "modified_features": {
+        "attendance_pct_w8": 80.97
+      },
+      "predicted_risk_reduction": 0.5909,
+      "new_risk_probability": 0.3082,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 2,
+    "checkpoint": "W8",
+    "risk_probability": 0.9983,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 4 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 44.63, SHAP: +4.046)",
+        "low_scoring_subjects_w8 (value: 4, SHAP: +1.670)",
+        "marks_change_w4_w8 (value: -4.12, SHAP: +1.040)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+10 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 54.63
+      },
+      "predicted_risk_reduction": 0.8394,
+      "new_risk_probability": 0.1589,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 3,
+    "checkpoint": "W8",
+    "risk_probability": 0.9946,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 52.4, SHAP: +4.131)",
+        "low_scoring_subjects_w8 (value: 2, SHAP: +0.918)",
+        "low_scoring_subjects_w4 (value: 1, SHAP: +0.109)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 57.4
+      },
+      "predicted_risk_reduction": 0.8188,
+      "new_risk_probability": 0.1758,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 4,
+    "checkpoint": "W8",
+    "risk_probability": 0.9959,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 51.56, SHAP: +3.793)",
+        "low_scoring_subjects_w8 (value: 2, SHAP: +1.059)",
+        "attendance_pct_w4 (value: 85.83, SHAP: +0.219)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 56.56
+      },
+      "predicted_risk_reduction": 0.898,
+      "new_risk_probability": 0.0979,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 1,
+    "checkpoint": "W8",
+    "risk_probability": 0.994,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 48.93, SHAP: +3.713)",
+        "low_scoring_subjects_w8 (value: 3, SHAP: +1.756)",
+        "marks_change_w4_w8 (value: -0.08, SHAP: +0.365)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 53.93
+      },
+      "predicted_risk_reduction": 0.7116,
+      "new_risk_probability": 0.2824,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 2,
+    "checkpoint": "W8",
+    "risk_probability": 0.9971,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 4 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 45.81, SHAP: +4.157)",
+        "low_scoring_subjects_w8 (value: 4, SHAP: +1.273)",
+        "previous_attendance_pct (value: 57.59, SHAP: +0.838)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+10 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 55.81
+      },
+      "predicted_risk_reduction": 0.9256,
+      "new_risk_probability": 0.0715,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 3,
+    "checkpoint": "W8",
+    "risk_probability": 0.9942,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 50.83, SHAP: +3.995)",
+        "low_scoring_subjects_w8 (value: 2, SHAP: +0.932)",
+        "attendance_change_w4_w8 (value: -0.98, SHAP: +0.260)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 55.83
+      },
+      "predicted_risk_reduction": 0.8048,
+      "new_risk_probability": 0.1894,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 4,
+    "checkpoint": "W8",
+    "risk_probability": 0.9863,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 53.4, SHAP: +2.746)",
+        "low_scoring_subjects_w8 (value: 3, SHAP: +1.336)",
+        "marks_change_w4_w8 (value: -2.27, SHAP: +0.782)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 58.4
+      },
+      "predicted_risk_reduction": 0.8261,
+      "new_risk_probability": 0.1602,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 5,
+    "checkpoint": "W8",
+    "risk_probability": 0.9895,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 51.48, SHAP: +3.604)",
+        "low_scoring_subjects_w8 (value: 3, SHAP: +1.287)",
+        "marks_change_w4_w8 (value: 0.65, SHAP: +0.332)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 56.48
+      },
+      "predicted_risk_reduction": 0.9178,
+      "new_risk_probability": 0.0717,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 6,
+    "checkpoint": "W8",
+    "risk_probability": 0.9936,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 51.58, SHAP: +3.958)",
+        "previous_attendance_pct (value: 55.59, SHAP: +0.968)",
+        "low_scoring_subjects_w8 (value: 2, SHAP: +0.665)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 56.58
+      },
+      "predicted_risk_reduction": 0.7293,
+      "new_risk_probability": 0.2643,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0019",
+    "semester_no": 2,
+    "checkpoint": "W8",
+    "risk_probability": 0.9912,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 51.03, SHAP: +3.977)",
+        "low_scoring_subjects_w8 (value: 2, SHAP: +0.991)",
+        "low_scoring_subjects_w4 (value: 3, SHAP: +0.092)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 56.03
+      },
+      "predicted_risk_reduction": 0.9093,
+      "new_risk_probability": 0.0819,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0019",
+    "semester_no": 5,
+    "checkpoint": "W8",
+    "risk_probability": 0.8985,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 1 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 53.9, SHAP: +1.947)",
+        "low_scoring_subjects_w8 (value: 1, SHAP: +0.959)",
+        "low_attendance_subjects_w4 (value: 2, SHAP: +0.047)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 58.9
+      },
+      "predicted_risk_reduction": 0.7631,
+      "new_risk_probability": 0.1354,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0020",
+    "semester_no": 6,
+    "checkpoint": "W8",
+    "risk_probability": 0.0065,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0027",
+    "semester_no": 1,
+    "checkpoint": "W8",
+    "risk_probability": 0.9843,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 5 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 40.99, SHAP: +3.880)",
+        "low_scoring_subjects_w8 (value: 5, SHAP: +1.623)",
+        "internal_marks_avg_w4 (value: 34.46, SHAP: +0.749)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+15 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 55.99
+      },
+      "predicted_risk_reduction": 0.8926,
+      "new_risk_probability": 0.0917,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0027",
+    "semester_no": 3,
+    "checkpoint": "W8",
+    "risk_probability": 0.9284,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w8 (value: 49.23, SHAP: +3.026)",
+        "low_scoring_subjects_w8 (value: 2, SHAP: +0.795)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w8": 54.23
+      },
+      "predicted_risk_reduction": 0.6643,
+      "new_risk_probability": 0.2641,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 1,
+    "checkpoint": "W8",
+    "risk_probability": 0.0011,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 2,
+    "checkpoint": "W8",
+    "risk_probability": 0.0013,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 3,
+    "checkpoint": "W8",
+    "risk_probability": 0.0033,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 4,
+    "checkpoint": "W8",
+    "risk_probability": 0.0011,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 5,
+    "checkpoint": "W8",
+    "risk_probability": 0.0016,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 6,
+    "checkpoint": "W8",
+    "risk_probability": 0.001,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 7,
+    "checkpoint": "W8",
+    "risk_probability": 0.0027,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 8,
+    "checkpoint": "W8",
+    "risk_probability": 0.001,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0002",
+    "semester_no": 1,
+    "checkpoint": "W8",
+    "risk_probability": 0.0014,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0002",
+    "semester_no": 2,
+    "checkpoint": "W8",
+    "risk_probability": 0.0009,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0011",
+    "semester_no": 8,
+    "checkpoint": "W12",
+    "risk_probability": 0.9069,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 1 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "low_scoring_subjects_w12 (value: 1, SHAP: +1.872)",
+        "attendance_change_w4_w8 (value: 0.29, SHAP: +0.916)",
+        "low_scoring_subjects_w8 (value: 1, SHAP: +0.841)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "STUDY_PLAN",
+      "title": "Structured Study Plan & Time-Management Framework",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Provide guided coursework timetable, milestone-based assignment submission targets, and self-paced remedial module schedules."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w12": 69.75
+      },
+      "predicted_risk_reduction": 0.4336,
+      "new_risk_probability": 0.4733,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 2,
+    "checkpoint": "W12",
+    "risk_probability": 0.9991,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 46.09, SHAP: +4.304)",
+        "low_scoring_subjects_w12 (value: 3, SHAP: +2.821)",
+        "internal_marks_avg_w8 (value: 44.63, SHAP: +1.267)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Combined Intervention (+10% Att, +10 Marks)",
+      "modified_features": {
+        "attendance_pct_w12": 86.37,
+        "internal_marks_avg_w12": 56.09,
+        "low_scoring_subjects_w12": 2
+      },
+      "predicted_risk_reduction": 0.5363,
+      "new_risk_probability": 0.4628,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 3,
+    "checkpoint": "W12",
+    "risk_probability": 0.9987,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 48.16, SHAP: +4.873)",
+        "low_scoring_subjects_w12 (value: 2, SHAP: +2.462)",
+        "internal_marks_avg_w8 (value: 52.4, SHAP: +1.530)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Remediate 2 Failing Subject(s)",
+      "modified_features": {
+        "low_scoring_subjects_w12": 0,
+        "internal_marks_avg_w12": 56.16
+      },
+      "predicted_risk_reduction": 0.6216,
+      "new_risk_probability": 0.3771,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0016",
+    "semester_no": 4,
+    "checkpoint": "W12",
+    "risk_probability": 0.9975,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 4 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 47.85, SHAP: +4.800)",
+        "low_scoring_subjects_w12 (value: 4, SHAP: +2.700)",
+        "internal_marks_avg_w8 (value: 51.56, SHAP: +1.380)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Remediate 3 Failing Subject(s)",
+      "modified_features": {
+        "low_scoring_subjects_w12": 1,
+        "internal_marks_avg_w12": 59.85
+      },
+      "predicted_risk_reduction": 0.5047,
+      "new_risk_probability": 0.4928,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 1,
+    "checkpoint": "W12",
+    "risk_probability": 0.9976,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 50.91, SHAP: +4.174)",
+        "low_scoring_subjects_w12 (value: 3, SHAP: +2.768)",
+        "internal_marks_avg_w8 (value: 48.93, SHAP: +1.189)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+20 pts)",
+      "modified_features": {
+        "internal_marks_avg_w12": 70.91
+      },
+      "predicted_risk_reduction": 0.5106,
+      "new_risk_probability": 0.487,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 2,
+    "checkpoint": "W12",
+    "risk_probability": 0.9989,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "MEDIUM",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "MEDIUM",
+      "reason": "Student has 5 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 46.78, SHAP: +4.801)",
+        "low_scoring_subjects_w12 (value: 5, SHAP: +2.714)",
+        "internal_marks_avg_w8 (value: 45.81, SHAP: +1.230)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Remediate 3 Failing Subject(s)",
+      "modified_features": {
+        "low_scoring_subjects_w12": 2,
+        "internal_marks_avg_w12": 58.78
+      },
+      "predicted_risk_reduction": 0.3293,
+      "new_risk_probability": 0.6696,
+      "new_point_prediction": "RISK",
+      "feasibility": "FEASIBLE_PARTIAL_REDUCTION"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 3,
+    "checkpoint": "W12",
+    "risk_probability": 0.9988,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 2 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 50.37, SHAP: +4.477)",
+        "low_scoring_subjects_w12 (value: 2, SHAP: +2.466)",
+        "internal_marks_avg_w8 (value: 50.83, SHAP: +1.378)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Combined Intervention (+5% Att, +10 Marks)",
+      "modified_features": {
+        "attendance_pct_w12": 86.81,
+        "internal_marks_avg_w12": 60.37,
+        "low_scoring_subjects_w12": 1
+      },
+      "predicted_risk_reduction": 0.7204,
+      "new_risk_probability": 0.2784,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 4,
+    "checkpoint": "W12",
+    "risk_probability": 0.9991,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 51.15, SHAP: +4.974)",
+        "low_scoring_subjects_w12 (value: 3, SHAP: +2.689)",
+        "internal_marks_avg_w8 (value: 53.4, SHAP: +0.618)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Combined Intervention (+5% Att, +10 Marks)",
+      "modified_features": {
+        "attendance_pct_w12": 70.62,
+        "internal_marks_avg_w12": 61.15,
+        "low_scoring_subjects_w12": 2
+      },
+      "predicted_risk_reduction": 0.6446,
+      "new_risk_probability": 0.3545,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 5,
+    "checkpoint": "W12",
+    "risk_probability": 0.9987,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 4 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 50.68, SHAP: +5.122)",
+        "low_scoring_subjects_w12 (value: 4, SHAP: +2.680)",
+        "internal_marks_avg_w8 (value: 51.48, SHAP: +1.279)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Combined Intervention (+5% Att, +10 Marks)",
+      "modified_features": {
+        "attendance_pct_w12": 60.59,
+        "internal_marks_avg_w12": 60.68,
+        "low_scoring_subjects_w12": 3
+      },
+      "predicted_risk_reduction": 0.5674,
+      "new_risk_probability": 0.4313,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0017",
+    "semester_no": 6,
+    "checkpoint": "W12",
+    "risk_probability": 0.9976,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 1 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 50.77, SHAP: +4.958)",
+        "low_scoring_subjects_w12 (value: 1, SHAP: +2.168)",
+        "internal_marks_avg_w8 (value: 51.58, SHAP: +1.123)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+10 pts)",
+      "modified_features": {
+        "internal_marks_avg_w12": 60.77
+      },
+      "predicted_risk_reduction": 0.6742,
+      "new_risk_probability": 0.3234,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0019",
+    "semester_no": 2,
+    "checkpoint": "W12",
+    "risk_probability": 0.9943,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 52.45, SHAP: +3.626)",
+        "low_scoring_subjects_w12 (value: 3, SHAP: +2.710)",
+        "internal_marks_avg_w8 (value: 51.03, SHAP: +1.424)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Combined Intervention (+10% Att, +10 Marks)",
+      "modified_features": {
+        "attendance_pct_w12": 87.36,
+        "internal_marks_avg_w12": 62.45,
+        "low_scoring_subjects_w12": 2
+      },
+      "predicted_risk_reduction": 0.6989,
+      "new_risk_probability": 0.2954,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0019",
+    "semester_no": 5,
+    "checkpoint": "W12",
+    "risk_probability": 0.9335,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "low_scoring_subjects_w12 (value: 3, SHAP: +2.649)",
+        "internal_marks_avg_w12 (value: 54.1, SHAP: +1.384)",
+        "internal_marks_avg_w8 (value: 53.9, SHAP: +0.364)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+5 pts)",
+      "modified_features": {
+        "internal_marks_avg_w12": 59.1
+      },
+      "predicted_risk_reduction": 0.6542,
+      "new_risk_probability": 0.2793,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0020",
+    "semester_no": 6,
+    "checkpoint": "W12",
+    "risk_probability": 0.0101,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0027",
+    "semester_no": 1,
+    "checkpoint": "W12",
+    "risk_probability": 0.9925,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 3 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "internal_marks_avg_w12 (value: 49.55, SHAP: +4.204)",
+        "low_scoring_subjects_w12 (value: 3, SHAP: +2.802)",
+        "internal_marks_avg_w8 (value: 40.99, SHAP: +0.973)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "FACULTY_MENTORING",
+      "title": "One-on-One Faculty Academic Mentoring",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Schedule bi-weekly advisory sessions with departmental faculty mentor to review assignment bottlenecks, conceptual hurdles, and exam preparation strategies."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Internal Marks Improvement (+10 pts)",
+      "modified_features": {
+        "internal_marks_avg_w12": 59.55
+      },
+      "predicted_risk_reduction": 0.6574,
+      "new_risk_probability": 0.3351,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0027",
+    "semester_no": 3,
+    "checkpoint": "W12",
+    "risk_probability": 0.9219,
+    "risk_class": "HIGH",
+    "uncertainty_status": "CONFIDENT_RISK",
+    "conformal_prediction_set": [
+      "RISK"
+    ],
+    "priority": "CRITICAL",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "SUBJECT_REMEDIATION",
+      "title": "Targeted Multi-Subject Academic Remediation",
+      "priority": "CRITICAL",
+      "confidence": "HIGH",
+      "reason": "Student has 1 subject(s) below internal benchmarks, identified as a primary risk driver.",
+      "trigger_evidence": [
+        "low_scoring_subjects_w12 (value: 1, SHAP: +1.995)",
+        "internal_marks_avg_w8 (value: 49.23, SHAP: +0.903)",
+        "previous_attendance_pct (value: 82.0, SHAP: +0.365)"
+      ],
+      "suggested_action": "Enroll student in small-group tutorial sessions for high-risk subjects, assign dedicated peer tutors, and conduct remedial assessment drills.",
+      "expected_model_effect": "Remediating 1 or more failing subjects below 50% internal mark benchmark is the primary driver for transitioning predictions to SAFE.",
+      "time_horizon": "Short-term (Next 2-4 weeks)"
+    },
+    "secondary_intervention": {
+      "type": "STUDY_PLAN",
+      "title": "Structured Study Plan & Time-Management Framework",
+      "priority": "MEDIUM",
+      "reason": "Complementary academic support recommendation.",
+      "suggested_action": "Provide guided coursework timetable, milestone-based assignment submission targets, and self-paced remedial module schedules."
+    },
+    "counterfactual_evidence": {
+      "scenario_name": "Remediate 1 Failing Subject(s)",
+      "modified_features": {
+        "low_scoring_subjects_w12": 0,
+        "internal_marks_avg_w12": 60.15
+      },
+      "predicted_risk_reduction": 0.8926,
+      "new_risk_probability": 0.0293,
+      "new_point_prediction": "SAFE",
+      "feasibility": "FEASIBLE_THRESHOLD_CROSSED"
+    },
+    "non_causal_statement": "Intervention recommendations are model-based academic decision support suggestions derived from empirical feature attributions and counterfactual simulations. They do not guarantee individual student outcomes."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 1,
+    "checkpoint": "W12",
+    "risk_probability": 0.0008,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 2,
+    "checkpoint": "W12",
+    "risk_probability": 0.0008,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 3,
+    "checkpoint": "W12",
+    "risk_probability": 0.0013,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 4,
+    "checkpoint": "W12",
+    "risk_probability": 0.0013,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 5,
+    "checkpoint": "W12",
+    "risk_probability": 0.0014,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 6,
+    "checkpoint": "W12",
+    "risk_probability": 0.0012,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 7,
+    "checkpoint": "W12",
+    "risk_probability": 0.0017,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0001",
+    "semester_no": 8,
+    "checkpoint": "W12",
+    "risk_probability": 0.0013,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0002",
+    "semester_no": 1,
+    "checkpoint": "W12",
+    "risk_probability": 0.0011,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  },
+  {
+    "student_id": "STU0002",
+    "semester_no": 2,
+    "checkpoint": "W12",
+    "risk_probability": 0.0014,
+    "risk_class": "LOW",
+    "uncertainty_status": "CONFIDENT_SAFE",
+    "conformal_prediction_set": [
+      "SAFE"
+    ],
+    "priority": "NONE",
+    "recommendation_confidence": "HIGH",
+    "primary_intervention": {
+      "type": "NO_INTERVENTION",
+      "title": "No Remedial Intervention Warranted",
+      "priority": "NONE",
+      "confidence": "HIGH",
+      "reason": "Student exhibits low predicted risk with strong protective academic indicators.",
+      "suggested_action": "Continue regular curriculum; student exhibits strong academic indicators and low predicted risk.",
+      "time_horizon": "Standard semester progression"
+    },
+    "secondary_intervention": null,
+    "counterfactual_evidence": null,
+    "non_causal_statement": "Student is currently classified as SAFE. No remedial intervention recommended."
+  }
+]

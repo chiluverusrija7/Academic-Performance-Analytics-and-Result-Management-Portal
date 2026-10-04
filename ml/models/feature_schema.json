@@ -1,0 +1,54 @@
+{
+  "numeric_features": [
+    "attendance_pct_to_date",
+    "in_sem_avg_pct",
+    "low_internal_subjects_count",
+    "subjects_below_internal_threshold",
+    "internal_assessment_count",
+    "current_semester",
+    "previous_sgpa",
+    "previous_marks_average",
+    "previous_backlogs",
+    "previous_attendance_pct",
+    "performance_trend",
+    "subjects_attempted"
+  ],
+  "categorical_features": [
+    "department",
+    "course"
+  ],
+  "transformed_feature_names": [
+    "attendance_pct_to_date",
+    "in_sem_avg_pct",
+    "low_internal_subjects_count",
+    "subjects_below_internal_threshold",
+    "internal_assessment_count",
+    "current_semester",
+    "previous_sgpa",
+    "previous_marks_average",
+    "previous_backlogs",
+    "previous_attendance_pct",
+    "performance_trend",
+    "subjects_attempted",
+    "previous_sgpa_is_missing",
+    "previous_marks_average_is_missing",
+    "previous_backlogs_is_missing",
+    "previous_attendance_pct_is_missing",
+    "department_AIML",
+    "department_CSE",
+    "department_DS",
+    "department_ECE",
+    "course_B.Tech AIML",
+    "course_B.Tech CSE",
+    "course_B.Tech DS",
+    "course_B.Tech ECE"
+  ],
+  "excluded_leakage_columns": [
+    "final_external_avg_pct",
+    "final_total_pct",
+    "final_sgpa",
+    "final_backlogs",
+    "final_result_classification",
+    "target_risk"
+  ]
+}

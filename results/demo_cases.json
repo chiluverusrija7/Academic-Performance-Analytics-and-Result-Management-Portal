@@ -1,0 +1,45 @@
+{
+  "primary_demo_case": {
+    "student_id": "STU0016",
+    "semester_no": 2,
+    "department": "AIML",
+    "rationale": "Rich multi-checkpoint trajectory with high risk at W12 driven by 3 failing subjects, a feasible combined counterfactual, and critical subject remediation intervention."
+  },
+  "backup_cases": {
+    "high_risk_case": {
+      "student_id": "STU0017",
+      "semester_no": 2,
+      "department": "ECE",
+      "checkpoint": "W8",
+      "rationale": "High midterm risk with 4 failing subjects and rapid recovery via marks improvement."
+    },
+    "ambiguous_case": {
+      "student_id": "STU0250",
+      "semester_no": 3,
+      "department": "CSE",
+      "checkpoint": "W4",
+      "rationale": "Borderline 52% risk with two-class ambiguous prediction set [SAFE, RISK] demonstrating conformal uncertainty gating."
+    },
+    "safe_case": {
+      "student_id": "STU0001",
+      "semester_no": 1,
+      "department": "CSE",
+      "checkpoint": "W12",
+      "rationale": "High-performing student with 0.13% risk correctly receiving NO_INTERVENTION."
+    },
+    "recovery_case": {
+      "student_id": "STU0246",
+      "semester_no": 2,
+      "department": "DS",
+      "checkpoint": "W12",
+      "rationale": "Student struggling at W4 (56.88% marks) who recovered by W12 (74.56% marks), dropping risk to 0.00%."
+    },
+    "declining_case": {
+      "student_id": "STU0069",
+      "semester_no": 6,
+      "department": "AIML",
+      "checkpoint": "W12",
+      "rationale": "Student starting at 57% marks at W4 and deteriorating to 45% marks at W12 with 4 failing subjects."
+    }
+  }
+}

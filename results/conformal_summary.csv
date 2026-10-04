@@ -1,0 +1,7 @@
+checkpoint,alpha,target_coverage,empirical_coverage,coverage_gap,risk_class_coverage,safe_class_coverage,avg_set_size,ambiguity_rate_pct,singleton_rate_pct,empty_rate_pct,conformal_quantile_q_hat,probability_inclusion_threshold,total_test_samples,singleton_safe_count,singleton_risk_count,ambiguous_count
+W4,0.1,0.9,0.9186,0.0186,0.8,0.932,1.0,0.0,100.0,0.0,0.466,0.534,344,295,49,0
+W4,0.05,0.95,0.9651,0.0151,0.8571,0.9773,1.0988,9.88,90.12,0.0,0.6803,0.3197,344,280,30,34
+W8,0.1,0.9,0.9506,0.0506,0.8857,0.9579,1.0,0.0,100.0,0.0,0.1455,0.8545,344,300,44,0
+W8,0.05,0.95,0.9651,0.0151,0.9143,0.9709,1.0262,2.62,97.38,0.0,0.6544,0.3456,344,296,39,9
+W12,0.1,0.9,0.968,0.068,0.8857,0.9773,1.0,0.0,100.0,0.0,0.0979,0.9021,344,306,38,0
+W12,0.05,0.95,0.968,0.018,0.8857,0.9773,1.0,0.0,100.0,0.0,0.3559,0.6441,344,306,38,0

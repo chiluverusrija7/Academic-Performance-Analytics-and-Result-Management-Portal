@@ -1,0 +1,7 @@
+case_description,student_id,checkpoint,feasibility_status,scenario_name,current_risk_prob,current_point_pred,current_uncertainty,cf_risk_prob,cf_point_pred,cf_uncertainty,probability_reduction,intervention_cost
+Case 1: W12 High-Risk Trajectory — Combined Remedial Intervention,STU0016,W12,FEASIBLE_THRESHOLD_CROSSED,"Combined Intervention (+10% Att, +10 Marks)",0.9991,RISK,CONFIDENT_RISK,0.4628,SAFE,AMBIGUOUS,0.5363,1.5
+Case 2: W8 Moderate Risk — Attendance Improvement Scenario,STU0017,W8,FEASIBLE_THRESHOLD_CROSSED,Internal Marks Improvement (+5 pts),0.994,RISK,CONFIDENT_RISK,0.2824,SAFE,AMBIGUOUS,0.7116,0.25
+Case 3: W4 Early-Term Vulnerability — Early Assessment Intervention,STU0016,W4,FEASIBLE_THRESHOLD_CROSSED,Internal Marks Improvement (+20 pts),0.9191,RISK,CONFIDENT_RISK,0.0503,SAFE,CONFIDENT_SAFE,0.8688,1.0
+Case 4: W12 Severe Chronic Failure — Partial Reduction (High Residual Risk),STU0036,W12,FEASIBLE_PARTIAL_REDUCTION,Internal Marks Improvement (+20 pts),0.9992,RISK,CONFIDENT_RISK,0.7186,RISK,AMBIGUOUS,0.2806,1.0
+Case 5: High-Performing Baseline — No Intervention Warranted,STU0001,W12,NO_INTERVENTION_NEEDED,N/A,0.0013,SAFE,CONFIDENT_SAFE,N/A,N/A,N/A,0.0,0.0
+Case 6: Confident Safe Student — Filtered from Unnecessary Remediation,STU0001,W8,NO_INTERVENTION_NEEDED,N/A,0.001,SAFE,CONFIDENT_SAFE,N/A,N/A,N/A,0.0,0.0
