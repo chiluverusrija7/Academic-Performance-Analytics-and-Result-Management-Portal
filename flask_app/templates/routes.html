@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduInsight AI — System Route & Accessibility Directory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        navy: { 950: '#070B12', 900: '#0B0F17', 800: '#111827', 700: '#1E293B' },
+                        brand: { 500: '#8B5CF6', 600: '#7C3AED', 700: '#6D28D9' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #070B12;
+            color: #E2E8F0;
+        }
+        .glass-panel {
+            background: rgba(11, 15, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-navy-950 font-sans text-slate-200">
+    <!-- Header -->
+    <header class="border-b border-purple-900/30 bg-navy-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                    <i data-lucide="compass" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-white flex items-center gap-2">
+                        EduInsight AI
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 font-mono">Route Directory</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Institutional Access & Endpoint Navigation Index</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+                <a href="/" class="px-3 py-1.5 rounded-lg bg-purple-600/20 border border-purple-500/30 hover:bg-purple-600/30 text-purple-300 font-medium transition flex items-center gap-1.5">
+                    <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i> Back to Main App
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-10 space-y-10">
+
+        <!-- Banner -->
+        <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 relative overflow-hidden">
+            <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-1">System Accessibility & Routing Hub</h2>
+                    <p class="text-sm text-slate-400">Complete catalog of implemented routes across React UI, Flask Presentation Layer, Express Gateway, and FastAPI AI Microservices.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">Flask :5001</span>
+                    <span class="px-3 py-1 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400">FastAPI :8000</span>
+                    <span class="px-3 py-1 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400">Express :5000</span>
+                    <span class="px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400">React UI :3000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group 1: Student Command Center & Academic Views -->
+        <div class="space-y-4">
+            <div class="flex items-center gap-2 text-purple-400">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                <h3 class="text-lg font-bold uppercase tracking-wider text-white">1. Student Portal & Academic Views</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="/students" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/students</div>
+                    <p class="text-xs text-slate-400 mt-1">Student 360° Intelligence Profile, embedded risk predictions, and SHAP drivers.</p>
+                </a>
+                <a href="/whatif" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/whatif</div>
+                    <p class="text-xs text-slate-400 mt-1">Interactive Counterfactual What-If Simulator & attendance recovery pacing.</p>
+                </a>
+                <a href="/temporal" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/temporal</div>
+                    <p class="text-xs text-slate-400 mt-1">Longitudinal Trajectory Tracker across W4, W8, and W12 milestones.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Group 2: Faculty Decision Support & Priority Queue -->
+        <div class="space-y-4">
+            <div class="flex items-center gap-2 text-purple-400">
+                <i data-lucide="users" class="w-5 h-5"></i>
+                <h3 class="text-lg font-bold uppercase tracking-wider text-white">2. Faculty Portal & Intervention Decision Support</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="/interventions" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/interventions</div>
+                    <p class="text-xs text-slate-400 mt-1">Prioritized Academic Interventions queue ranked by multi-factor urgency score.</p>
+                </a>
+                <a href="/" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/ (Overview)</div>
+                    <p class="text-xs text-slate-400 mt-1">Cohort-level distribution, early risk overview, and 5-stage innovation telemetry.</p>
+                </a>
+                <a href="/model-lab" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/model-lab</div>
+                    <p class="text-xs text-slate-400 mt-1">Model calibration curves, Conformal coverage evaluation, and model governance.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Group 3: AI Microservice & Vector Endpoints (FastAPI) -->
+        <div class="space-y-4">
+            <div class="flex items-center gap-2 text-purple-400">
+                <i data-lucide="cpu" class="w-5 h-5"></i>
+                <h3 class="text-lg font-bold uppercase tracking-wider text-white">3. FastAPI AI & Vector Service Layer (Port 8000)</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="http://localhost:8000/docs" target="_blank" class="glass-panel p-4 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">DOCS</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">/docs (Swagger UI)</div>
+                    <p class="text-xs text-slate-400 mt-1">Interactive OpenAPI Swagger specifications.</p>
+                </a>
+                <a href="http://localhost:8000/redoc" target="_blank" class="glass-panel p-4 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">DOCS</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">/redoc (ReDoc)</div>
+                    <p class="text-xs text-slate-400 mt-1">Comprehensive ReDoc API documentation.</p>
+                </a>
+                <a href="http://localhost:8000/health" target="_blank" class="glass-panel p-4 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">GET</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">/health</div>
+                    <p class="text-xs text-slate-400 mt-1">Model readiness & pgvector health status.</p>
+                </a>
+                <a href="http://localhost:8000/api/vector/policies" target="_blank" class="glass-panel p-4 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">GET</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-500 group-hover:text-purple-400"></i>
+                    </div>
+                    <div class="font-bold text-white text-sm">/api/vector/policies</div>
+                    <p class="text-xs text-slate-400 mt-1">Indexed institutional policy guidelines.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Group 4: System Architecture & Transparency -->
+        <div class="space-y-4">
+            <div class="flex items-center gap-2 text-purple-400">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+                <h3 class="text-lg font-bold uppercase tracking-wider text-white">4. System Transparency & Architecture</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="/architecture" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/architecture</div>
+                    <p class="text-xs text-slate-400 mt-1">Multi-tier technology stack diagram, data pipeline flowchart, and integration contracts.</p>
+                </a>
+                <a href="/tech-stack" class="glass-panel p-5 rounded-xl border border-purple-900/30 hover:border-purple-500/50 hover:bg-purple-950/20 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">GET</span>
+                        <i data-lucide="external-link" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                    </div>
+                    <div class="font-bold text-white text-base group-hover:text-purple-300">/tech-stack</div>
+                    <p class="text-xs text-slate-400 mt-1">Direct alias for the interactive technology architecture inspector.</p>
+                </a>
+                <a href="/routes" class="glass-panel p-5 rounded-xl border border-purple-500/40 bg-purple-950/20 hover:border-purple-400 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">CURRENT</span>
+                        <i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">/routes (Link Directory)</div>
+                    <p class="text-xs text-slate-400 mt-1">Active centralized routing index and accessibility audit directory.</p>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-purple-900/30 py-6 mt-12 text-center text-xs text-slate-500 font-mono">
+        EduInsight AI • Multi-Tier Academic Decision Support Platform • Capstone Release
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

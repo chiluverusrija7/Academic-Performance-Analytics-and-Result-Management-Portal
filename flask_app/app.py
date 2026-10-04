@@ -152,6 +152,13 @@ def tech_stack_view():
         policies=policies.get("data", {})
     )
 
+@app.route("/routes")
+@app.route("/link-directory")
+def link_directory_view():
+    """System Route & Accessibility Directory Page."""
+    return render_template("routes.html")
+
+
 
 # -------------------------------------------------------------
 # REST Proxy Endpoints for Interactive Client-Side AJAX

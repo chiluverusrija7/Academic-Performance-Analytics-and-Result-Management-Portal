@@ -122,3 +122,26 @@ python -m uvicorn fastapi_service.main:app --port 8000     # FastAPI AI (:8000)
 python flask_app/app.py                                    # Flask Web App (:5001)
 cd frontend && npm run dev                                 # React UI (:3000)
 ```
+
+---
+
+## 7. Local Application Links & Route Directory
+
+| Interface / Service | Local URL | Description |
+| :--- | :--- | :--- |
+| **Route Directory** | `http://127.0.0.1:5001/routes` | Centralized clickable navigation index of all endpoints |
+| **Flask Presentation Web App** | `http://127.0.0.1:5001` | Server-rendered visual analytics and decision support portal |
+| **React 18 Frontend UI** | `http://127.0.0.1:3000` | Unified interactive SPA for Students, Faculty, and Administrators |
+| **FastAPI Swagger Docs** | `http://127.0.0.1:8000/docs` | Interactive OpenAPI Swagger UI documentation |
+| **FastAPI ReDoc** | `http://127.0.0.1:8000/redoc` | Formatted ReDoc interactive API specification |
+| **FastAPI Health Status** | `http://127.0.0.1:8000/health` | AI microservice & pgvector index readiness endpoint |
+| **Express Backend API** | `http://127.0.0.1:5000` | Core relational REST API gateway and JWT authentication |
+
+### Key Web Routes
+- **Student Profile View**: `http://127.0.0.1:5001/students?id=STU0016&checkpoint=W12`
+- **Interactive What-If Simulator**: `http://127.0.0.1:5001/whatif?id=STU0016`
+- **Prioritized Interventions Queue**: `http://127.0.0.1:5001/interventions`
+- **Temporal Progression Tracker**: `http://127.0.0.1:5001/temporal`
+- **Model Governance & Calibration Lab**: `http://127.0.0.1:5001/model-lab`
+- **System Architecture Inspector**: `http://127.0.0.1:5001/architecture`
+
